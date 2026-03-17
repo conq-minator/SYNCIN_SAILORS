@@ -1,0 +1,21 @@
+<%- include("includes/header") %>
+
+<h3 class="mb-4">Possible Conditions</h3>
+<div class="row">
+    <% cards.forEach(card => { %>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary"><%= card.disease %></h5>
+                    <p class="card-text">Confidence: <strong><%= card.confidence %>%</strong></p>
+                    <p><%= card.summary %></p>
+                    <span class="badge bg-warning text-dark">Risk: <%= card.riskLevel %></span>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+<a href="/" class="btn btn-secondary mt-3">Back</a>
+
+<%- include("includes/footer") %>

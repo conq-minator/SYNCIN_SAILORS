@@ -1,0 +1,47 @@
+<%- include("includes/header") %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white p-4">
+                    <h2 class="mb-0">🩺 Health Intelligence Intake</h2>
+                    <p class="mb-0 opacity-75">AI-powered symptom analysis</p>
+                </div>
+                <div class="card-body p-5">
+                    <form action="/predict" method="POST">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-bold">Full Name</label>
+                                <input type="text" class="form-control form-control-lg" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-bold">Age</label>
+                                <input type="number" class="form-control form-control-lg" name="age" placeholder="25">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Symptoms</label>
+                            <textarea 
+                                class="form-control form-control-lg" 
+                                name="symptoms" 
+                                rows="3" 
+                                placeholder="Example: fever, headache, fatigue" 
+                                required></textarea>
+                            <div class="form-text">Separate multiple symptoms with commas.</div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                                Run AI Diagnostic Analysis
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("includes/footer") %>
