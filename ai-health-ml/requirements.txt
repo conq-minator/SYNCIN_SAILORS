@@ -1,0 +1,13 @@
+numpy
+pandas
+scikit-learn
+joblib
+fastapi
+uvicorn
+pydantic
+httpx
+requests
+beautifulsoup4
+lxml
+schedule
+python-dotenv

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI/ML Health System - Admin Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .status-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .status-card .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .status-card .label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .result.success {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border: 1px solid #4caf50;
+        }
+
+        .result.error {
+            background: #ffeaea;
+            color: #c62828;
+            border: 1px solid #f44336;
+        }
+
+        .disease-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        .disease-item {
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .disease-item:last-child {
+            border-bottom: none;
+        }
+
+        .disease-name {
+            font-weight: 600;
+        }
+
+        .disease-meta {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 AI/ML Health System - Admin Panel</h1>
+
+        <!-- System Status -->
+        <div class="section">
+            <h2>📊 System Status</h2>
+            <div class="status-grid" id="statusGrid">
+                <div class="status-card">
+                    <div class="value" id="diseaseCount">-</div>
+                    <div class="label">Diseases in DB</div>
+                </div>
+                <div class="status-card">
+                    <div class="value" id="modelClasses">-</div>
+                    <div class="label">Model Classes</div>
+                </div>
+                <div class="status-card">
+                    <div class="value" id="modelFeatures">-</div>
+                    <div class="label">Model Features</div>
+                </div>
+                <div class="status-card">
+                    <div class="value" id="internetStatus">❓</div>
+                    <div class="label">Internet Check</div>
+                </div>
+            </div>
+            <button onclick="refreshStatus()">🔄 Refresh Status</button>
+        </div>
+
+        <!-- Internet Check -->
+        <div class="section">
+            <h2>🌐 Internet Disease Check</h2>
+            <p>Check for new diseases from health websites and update the database.</p>
+            <button onclick="checkInternet()" id="checkInternetBtn">🔍 Check Internet</button>
+            <div class="result" id="internetResult"></div>
+        </div>
+
+        <!-- Manual Disease Addition -->
+        <div class="section">
+            <h2>➕ Add New Disease</h2>
+            <div class="form-group">
+                <label>Disease Name:</label>
+                <input type="text" id="newDiseaseName" placeholder="e.g., COVID-19">
+            </div>
+            <div class="form-group">
+                <label>Symptoms (comma-separated):</label>
+                <input type="text" id="newDiseaseSymptoms" placeholder="fever, cough, fatigue">
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <textarea id="newDiseaseDesc" rows="3" placeholder="Optional description"></textarea>
+            </div>
+            <button onclick="addDisease()">➕ Add Disease</button>
+            <div class="result" id="addResult"></div>
+        </div>
+
+        <!-- Disease Database -->
+        <div class="section">
+            <h2>📋 Disease Database</h2>
+            <button onclick="loadDiseases()">📖 Load Diseases</button>
+            <div class="disease-list" id="diseaseList"></div>
+        </div>
+
+        <!-- System Management -->
+        <div class="section">
+            <h2>⚙️ System Management</h2>
+            <button onclick="runScheduler()">⏰ Run Manual Update</button>
+            <button onclick="clearOldData()">🧹 Clear Old Data</button>
+            <div class="result" id="systemResult"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://127.0.0.1:8000';
+
+        // Load initial status
+        window.addEventListener('load', refreshStatus);
+
+        async function refreshStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+
+                document.getElementById('diseaseCount').textContent = data.database_diseases;
+                document.getElementById('modelClasses').textContent = data.model_classes;
+                document.getElementById('modelFeatures').textContent = data.model_features;
+
+                // Check internet
+                try {
+                    await fetch('https://www.google.com', { mode: 'no-cors' });
+                    document.getElementById('internetStatus').textContent = '✅';
+                } catch {
+                    document.getElementById('internetStatus').textContent = '❌';
+                }
+
+            } catch (error) {
+                console.error('Status check failed:', error);
+                showResult('statusResult', 'Failed to load system status', 'error');
+            }
+        }
+
+        async function checkInternet() {
+            const btn = document.getElementById('checkInternetBtn');
+            btn.disabled = true;
+            btn.textContent = '🔍 Checking...';
+
+            try {
+                const response = await fetch(`${API_BASE}/admin/check-internet`, {
+                    method: 'POST'
+                });
+                const data = await response.json();
+
+                let message = `Found ${data.new_diseases_found} new diseases`;
+                if (data.diseases.length > 0) {
+                    message += `: ${data.diseases.join(', ')}`;
+                }
+                if (data.model_retrained) {
+                    message += ' | Model retrained';
+                }
+
+                showResult('internetResult', message, 'success');
+
+            } catch (error) {
+                showResult('internetResult', `Internet check failed: ${error.message}`, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🔍 Check Internet';
+                refreshStatus();
+            }
+        }
+
+        async function addDisease() {
+            const name = document.getElementById('newDiseaseName').value.trim();
+            const symptomsText = document.getElementById('newDiseaseSymptoms').value.trim();
+            const desc = document.getElementById('newDiseaseDesc').value.trim();
+
+            if (!name || !symptomsText) {
+                showResult('addResult', 'Please fill in disease name and symptoms', 'error');
+                return;
+            }
+
+            const symptoms = symptomsText.split(',').map(s => s.trim()).filter(s => s);
+
+            try {
+                const response = await fetch(`${API_BASE}/user-report`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({
+                        name: name,
+                        symptoms: JSON.stringify(symptoms),
+                        description: desc
+                    })
+                });
+
+                const data = await response.json();
+                showResult('addResult', data.message, 'success');
+
+                // Clear form
+                document.getElementById('newDiseaseName').value = '';
+                document.getElementById('newDiseaseSymptoms').value = '';
+                document.getElementById('newDiseaseDesc').value = '';
+
+                refreshStatus();
+
+            } catch (error) {
+                showResult('addResult', `Failed to add disease: ${error.message}`, 'error');
+            }
+        }
+
+        async function loadDiseases() {
+            try {
+                const response = await fetch(`${API_BASE}/diseases`);
+                const data = await response.json();
+
+                const list = document.getElementById('diseaseList');
+                list.innerHTML = '';
+
+                data.diseases.forEach(disease => {
+                    const item = document.createElement('div');
+                    item.className = 'disease-item';
+                    item.innerHTML = `
+                        <div>
+                            <div class="disease-name">${disease.name}</div>
+                            <div class="disease-meta">
+                                ${disease.symptoms.length} symptoms |
+                                Source: ${disease.source} |
+                                Confidence: ${(disease.confidence * 100).toFixed(1)}%
+                            </div>
+                        </div>
+                    `;
+                    list.appendChild(item);
+                });
+
+            } catch (error) {
+                console.error('Failed to load diseases:', error);
+            }
+        }
+
+        async function runScheduler() {
+            // This would trigger the scheduler manually
+            showResult('systemResult', 'Manual update triggered (feature coming soon)', 'success');
+        }
+
+        async function clearOldData() {
+            showResult('systemResult', 'Data cleanup triggered (feature coming soon)', 'success');
+        }
+
+        function showResult(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `result ${type}`;
+            element.style.display = 'block';
+
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

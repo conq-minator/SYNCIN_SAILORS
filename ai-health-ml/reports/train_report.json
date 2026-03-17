@@ -1,0 +1,181 @@
+{
+  "metrics": {
+    "accuracy": 0.8455445544554455,
+    "n_rows": 2521,
+    "n_features": 23,
+    "n_classes": 26,
+    "trained_at": 1773756229.0764935,
+    "extra_verified_rows": 21
+  },
+  "report": {
+    "Acute Bronchitis": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Asthma": {
+      "precision": 0.8909090909090909,
+      "recall": 0.98,
+      "f1-score": 0.9333333333333333,
+      "support": 50.0
+    },
+    "Asthma (flare)": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 1.0
+    },
+    "Behcet's Syndrome": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "COVID-19": {
+      "precision": 0.9,
+      "recall": 0.8852459016393442,
+      "f1-score": 0.8925619834710744,
+      "support": 61.0
+    },
+    "Cold and Cough Medicines": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Common Cold": {
+      "precision": 0.4716981132075472,
+      "recall": 0.45454545454545453,
+      "f1-score": 0.46296296296296297,
+      "support": 55.0
+    },
+    "Common Infant and Newborn Problems": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Cough": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Dengue": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Depression": {
+      "precision": 0.9565217391304348,
+      "recall": 0.9565217391304348,
+      "f1-score": 0.9565217391304348,
+      "support": 46.0
+    },
+    "Diabetes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 52.0
+    },
+    "Diabetic Eye Problems": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Eye Care": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Eye Diseases": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Fifth Disease": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Flu": {
+      "precision": 0.5370370370370371,
+      "recall": 0.5471698113207547,
+      "f1-score": 0.5420560747663551,
+      "support": 53.0
+    },
+    "Gallbladder Cancer": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Gastroenteritis": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 50.0
+    },
+    "Glaucoma": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Heart Disease": {
+      "precision": 0.8695652173913043,
+      "recall": 0.9302325581395349,
+      "f1-score": 0.898876404494382,
+      "support": 43.0
+    },
+    "Hypertension": {
+      "precision": 0.9743589743589743,
+      "recall": 0.8837209302325582,
+      "f1-score": 0.926829268292683,
+      "support": 43.0
+    },
+    "Migraine": {
+      "precision": 0.9787234042553191,
+      "recall": 0.9583333333333334,
+      "f1-score": 0.968421052631579,
+      "support": 48.0
+    },
+    "Sarcoidosis": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 1.0
+    },
+    "Tetanus, Diphtheria, and Pertussis Vaccines": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 1.0
+    },
+    "Whooping Cough": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 1.0
+    },
+    "accuracy": 0.8455445544554455,
+    "macro avg": {
+      "precision": 0.3299543683188349,
+      "recall": 0.33060652801313134,
+      "f1-score": 0.3300601084262617,
+      "support": 505.0
+    },
+    "weighted avg": {
+      "precision": 0.8438005492759403,
+      "recall": 0.8455445544554455,
+      "f1-score": 0.8441474000794883,
+      "support": 505.0
+    }
+  }
+}

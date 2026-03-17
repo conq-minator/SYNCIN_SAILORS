@@ -1,0 +1,296 @@
+[
+  {
+    "disease": "Anaphylaxis",
+    "symptoms": [
+      "chest_pain",
+      "cough",
+      "diarrhea",
+      "difficulty_breathing",
+      "dizziness",
+      "fatigue",
+      "skin_rash",
+      "stuffy_nose",
+      "swelling",
+      "vomiting"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Anxiety",
+    "symptoms": [
+      "difficulty_breathing",
+      "dizziness",
+      "fever"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Asthma (flare)",
+    "symptoms": [
+      "difficulty_breathing",
+      "cough",
+      "chest_pain",
+      "wheezing"
+    ],
+    "source": "database",
+    "verified": true
+  },
+  {
+    "disease": "Atrial Fibrillation",
+    "symptoms": [
+      "dizziness",
+      "fatigue",
+      "palpitations"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Balance Problems",
+    "symptoms": [
+      "blurred_vision",
+      "confusion",
+      "dizziness"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Chest Pain",
+    "symptoms": [
+      "difficulty_breathing",
+      "dizziness",
+      "nausea",
+      "sweating"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Common Cold",
+    "symptoms": [
+      "cough",
+      "sore_throat",
+      "runny_nose",
+      "stuffy_nose",
+      "fatigue",
+      "headache"
+    ],
+    "source": "database",
+    "verified": true
+  },
+  {
+    "disease": "COVID-19",
+    "symptoms": [
+      "fever",
+      "cough",
+      "fatigue",
+      "difficulty_breathing",
+      "loss_of_taste",
+      "loss_of_smell"
+    ],
+    "source": "database",
+    "verified": true
+  },
+  {
+    "disease": "Dengue",
+    "symptoms": [
+      "a_viral_infection",
+      "dengue_dengue",
+      "fatigue",
+      "fever",
+      "four_related_viruses",
+      "joints",
+      "nausea",
+      "organ_transplant",
+      "outbreaks",
+      "pain_in_the_muscles"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Diabetic Heart Disease",
+    "symptoms": [
+      "chest_pain",
+      "difficulty_breathing",
+      "dizziness",
+      "fatigue",
+      "swelling"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Esophagus Disorders",
+    "symptoms": [
+      "chest_pain",
+      "cough",
+      "difficulty_breathing",
+      "fever",
+      "sore_throat",
+      "swelling",
+      "weight_loss"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Eye Diseases",
+    "symptoms": [
+      "a_permanent_loss",
+      "a_problem",
+      "any_symptoms",
+      "blindness_conjunctivitis",
+      "conditions_include_cataracts",
+      "diseases",
+      "hispanic",
+      "refractive_errors",
+      "regular_eye_exams",
+      "some_eye_conditions"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Fever",
+    "symptoms": [
+      "blood_pressure_medicines",
+      "including_some_antibiotics",
+      "take_aspirin",
+      "to_prevent_dehydration"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Flu",
+    "symptoms": [
+      "fever",
+      "cough",
+      "fatigue",
+      "headache",
+      "body_pain",
+      "sore_throat"
+    ],
+    "source": "database",
+    "verified": true
+  },
+  {
+    "disease": "Gastroenteritis",
+    "symptoms": [
+      "nausea",
+      "vomiting",
+      "diarrhea",
+      "stomach_pain",
+      "fever",
+      "loss_of_appetite"
+    ],
+    "source": "database",
+    "verified": true
+  },
+  {
+    "disease": "Glaucoma",
+    "symptoms": [
+      "a_group",
+      "blurred_vision",
+      "both",
+      "different_types",
+      "diseases",
+      "glaucoma_glaucoma",
+      "laser_treatment",
+      "nausea",
+      "open_angle_glaucoma",
+      "or_both"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Heart Disease in Women",
+    "symptoms": [
+      "chest_pain",
+      "nausea",
+      "vomiting"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Hemorrhagic Fevers",
+    "symptoms": [
+      "bedding",
+      "diarrhea",
+      "fatigue",
+      "fever",
+      "headache",
+      "loss_of_appetite",
+      "skin_rash",
+      "sore_throat",
+      "stomach_pain",
+      "vomiting"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Migraine",
+    "symptoms": [
+      "headache",
+      "nausea",
+      "dizziness",
+      "blurred_vision"
+    ],
+    "source": "database",
+    "verified": true
+  },
+  {
+    "disease": "Sarcoidosis",
+    "symptoms": [
+      "a_condition",
+      "any_organ",
+      "blurred_vision",
+      "cells",
+      "chest_pain",
+      "cough",
+      "difficulty_breathing",
+      "fever",
+      "granulomas",
+      "groups"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Streptococcal Infections",
+    "symptoms": [
+      "blood_infections",
+      "fever",
+      "pneumonia",
+      "skin_infections",
+      "skin_rash",
+      "sore_throat",
+      "swelling"
+    ],
+    "source": "online",
+    "verified": false
+  },
+  {
+    "disease": "Tick Bites",
+    "symptoms": [
+      "brushy",
+      "fever",
+      "grassy_areas",
+      "reddish_brown",
+      "skin_rash",
+      "stay_in_the_skin",
+      "such_as_tall_grass",
+      "you_can_have_serious",
+      "your_children"
+    ],
+    "source": "online",
+    "verified": false
+  }
+]

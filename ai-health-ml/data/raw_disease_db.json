@@ -1,0 +1,901 @@
+[
+  {
+    "disease": "Acoustic Neuroma",
+    "symptoms": [
+      "an acoustic neuroma",
+      "a benign tumor",
+      "that",
+      "the nerve",
+      "the ear",
+      "the brain",
+      "the tumor",
+      "no symptoms",
+      "mild symptoms",
+      "one side"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Acute Bronchitis",
+    "symptoms": [
+      "an inflammation",
+      "the bronchial tubes",
+      "the airways",
+      "that",
+      "your lungs",
+      "a cough",
+      "mucus",
+      "wheezing",
+      "a low fever",
+      "chest tightness"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Adenoids",
+    "symptoms": [
+      "adenoids adenoids",
+      "a patch",
+      "tissue",
+      "that",
+      "the throat",
+      "the nose",
+      "the tonsils",
+      "part",
+      "the lymphatic system",
+      "body fluids"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Alpha-1 Antitrypsin Deficiency",
+    "symptoms": [
+      "what",
+      "aat deficiency",
+      "aatd",
+      "an inherited condition",
+      "that",
+      "your risk",
+      "lung and liver disease",
+      "this condition"
+    ],
+    "seen": 4,
+    "source": "online"
+  },
+  {
+    "disease": "Anaphylaxis",
+    "symptoms": [
+      "a serious allergic reaction",
+      "the most common causes",
+      "reactions",
+      "foods",
+      "especially peanuts",
+      "medications",
+      "stinging insects",
+      "other causes",
+      "exposure"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Anthrax",
+    "symptoms": [
+      "a disease",
+      "bacillus anthracis",
+      "a germ",
+      "that",
+      "soil",
+      "many people",
+      "the attacks",
+      "someone",
+      "the u s mail"
+    ],
+    "seen": 4,
+    "source": "online"
+  },
+  {
+    "disease": "Anxiety",
+    "symptoms": [
+      "a feeling",
+      "dread",
+      "a rapid heartbeat",
+      "a normal reaction",
+      "example",
+      "a difficult problem",
+      "a test",
+      "an important decision",
+      "the anxiety",
+      "a boost"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Aplastic Anemia",
+    "symptoms": [
+      "what",
+      "aplastic anemia aplastic anemia",
+      "your bone marrow",
+      "enough new blood cells",
+      "damage",
+      "stem cells",
+      "different types",
+      "fanconi anemia",
+      "aplastic anemia the causes",
+      "autoimmune disorders"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Arthritis",
+    "symptoms": [
+      "any disorder",
+      "that",
+      "the joints",
+      "places",
+      "two bones",
+      "your elbow",
+      "knee",
+      "most types",
+      "joint pain"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Asbestos",
+    "symptoms": [
+      "the name",
+      "a group",
+      "long thin fibers",
+      "the environment",
+      "asbestos fibers",
+      "them",
+      "the fibers",
+      "the air",
+      "some",
+      "the lungs"
+    ],
+    "seen": 5,
+    "source": "online"
+  },
+  {
+    "disease": "Atrial Fibrillation",
+    "symptoms": [
+      "afib atrial fibrillation",
+      "the most common types",
+      "arrhythmias",
+      "the rate",
+      "your heartbeat",
+      "your heart",
+      "an irregular way",
+      "the lower chambers",
+      "enough blood",
+      "your lungs"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Balance Problems",
+    "symptoms": [
+      "the room",
+      "the feeling",
+      "a sign",
+      "a balance problem",
+      "confusion",
+      "one cause",
+      "fall related injuries",
+      "a hip fracture",
+      "the inner ear",
+      "others"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Behcet's Syndrome",
+    "symptoms": [
+      "behcet s syndrome",
+      "a disease",
+      "which",
+      "the blood vessels",
+      "many parts",
+      "the body",
+      "the most common symptoms",
+      "the mouth sores",
+      "the sex organs",
+      "other skin sores"
+    ],
+    "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Carpal Tunnel Syndrome",
+    "symptoms": [
+      "what",
+      "the name",
+      "a group",
+      "problems",
+      "your wrist",
+      "a very common condition",
+      "a nerve",
+      "the carpal tunnel",
+      "a narrow opening",
+      "the bones"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Cataract",
+    "symptoms": [
+      "what",
+      "cataracts a cataract",
+      "a clouding",
+      "the clear lens",
+      "your eye",
+      "this cloudiness",
+      "the back",
+      "the eye",
+      "a cataract",
+      "one or both eyes"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Chiari Malformation",
+    "symptoms": [
+      "chiari",
+      "structural defects",
+      "the cerebellum",
+      "the part",
+      "the brain",
+      "that",
+      "balance",
+      "cm",
+      "brain tissue",
+      "the spinal canal"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Cold and Cough Medicines",
+    "symptoms": [
+      "a common cold",
+      "the symptoms",
+      "a sore throat",
+      "sneezing",
+      "the cough",
+      "antibiotics",
+      "a lot",
+      "discomfort",
+      "that case"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Common Cold",
+    "symptoms": [
+      "what",
+      "a mild infection",
+      "your upper respiratory tract",
+      "which",
+      "your nose",
+      "throat",
+      "the most common illness",
+      "adults",
+      "an average"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Common Infant and Newborn Problems",
+    "symptoms": [
+      "your baby",
+      "common health problems",
+      "colds",
+      "coughs",
+      "fevers",
+      "skin problems",
+      "diaper rash",
+      "cradle cap",
+      "these problems",
+      "your sick baby"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Complex Regional Pain Syndrome",
+    "symptoms": [
+      "a chronic pain condition",
+      "intense pain",
+      "the arms",
+      "hands",
+      "legs",
+      "an injury",
+      "a nerve",
+      "the affected area",
+      "dramatic changes",
+      "skin temperature"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Cough",
+    "symptoms": [
+      "acute coughs",
+      "a cold flu",
+      "acute bronchitis",
+      "chronic coughs"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Dengue",
+    "symptoms": [
+      "what",
+      "dengue dengue",
+      "a viral infection",
+      "four related viruses",
+      "warm wet areas",
+      "the world",
+      "some parts",
+      "the united states",
+      "outbreaks",
+      "rainy seasons"
+    ],
+    "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Diabetic Eye Problems",
+    "symptoms": [
+      "diabetes diabetes",
+      "a disease",
+      "foods",
+      "the cells",
+      "energy",
+      "a hormone",
+      "the glucose",
+      "your cells"
+    ],
+    "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Dizziness and Vertigo",
+    "symptoms": [
+      "the room",
+      "these feelings",
+      "your balance",
+      "dizziness",
+      "many different causes",
+      "a sudden drop",
+      "blood pressure",
+      "many people",
+      "certain medicines",
+      "your inner ear"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Dry Mouth",
+    "symptoms": [
+      "your salivary glands",
+      "your mouth",
+      "the foods",
+      "small food pieces",
+      "your teeth",
+      "gums",
+      "tooth decay",
+      "minerals",
+      "calcium",
+      "phosphate"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Eating Disorders",
+    "symptoms": [
+      "what",
+      "disorders eating disorders",
+      "serious mental health disorders",
+      "severe problems",
+      "your thoughts",
+      "your eating behaviors",
+      "medical conditions",
+      "a lifestyle choice",
+      "your body s ability",
+      "proper nutrition"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Enlarged Prostate (BPH)",
+    "symptoms": [
+      "what",
+      "the prostate the prostate",
+      "a gland",
+      "the male reproductive system",
+      "the bladder",
+      "fluid",
+      "semen",
+      "an enlarged prostate",
+      "bph an enlarged prostate",
+      "your prostate gland"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Erectile Dysfunction",
+    "symptoms": [
+      "a common type",
+      "male sexual dysfunction",
+      "a man",
+      "trouble",
+      "an erection",
+      "a natural part",
+      "aging",
+      "some people",
+      "their doctors",
+      "your doctor"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Evaluating Health Information",
+    "symptoms": [
+      "reliable health information",
+      "a little effort",
+      "the health information",
+      "newspapers",
+      "magazines",
+      "tv",
+      "the internet",
+      "social media",
+      "health information",
+      "yourself"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Eye Care",
+    "symptoms": [
+      "your eyes",
+      "good daily habits",
+      "regular checkups",
+      "an important part",
+      "your health",
+      "the world",
+      "some eye diseases",
+      "vision loss",
+      "early warning signs"
+    ],
+    "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Eye Diseases",
+    "symptoms": [
+      "the eye even",
+      "your eyes",
+      "a problem",
+      "regular eye exams",
+      "refractive errors",
+      "the most common type",
+      "vision problem",
+      "some eye conditions",
+      "any symptoms",
+      "a permanent loss"
+    ],
+    "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Fifth Disease",
+    "symptoms": [
+      "fifth disease fifth disease",
+      "erythema infectiosum",
+      "a viral infection",
+      "this virus",
+      "the same type",
+      "cats",
+      "a bright red rash",
+      "their cheeks",
+      "a slapped cheek"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Gallbladder Cancer",
+    "symptoms": [
+      "your gallbladder",
+      "a pear shaped organ",
+      "your liver",
+      "a fluid",
+      "your stomach",
+      "digest food",
+      "a tube",
+      "the common bile duct",
+      "the duct",
+      "your small intestine"
+    ],
+    "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Gastroenteritis",
+    "symptoms": [
+      "what",
+      "gastroenteritis gastroenteritis",
+      "an inflammation",
+      "the lining",
+      "the stomach",
+      "the main symptoms",
+      "healthy people",
+      "severe symptoms",
+      "gastroenteritis there",
+      "many different causes"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Genital Warts",
+    "symptoms": [
+      "what",
+      "genital warts genital warts",
+      "a sexually transmitted infection",
+      "sti",
+      "the human papillomavirus",
+      "many types",
+      "some types",
+      "other types",
+      "cancer",
+      "no treatment"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "GERD",
+    "symptoms": [
+      "a large meal",
+      "this",
+      "gastroesophageal reflux",
+      "ger",
+      "the muscle",
+      "the end",
+      "your esophagus",
+      "the tube",
+      "that"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Glaucoma",
+    "symptoms": [
+      "glaucoma glaucoma",
+      "a group",
+      "diseases",
+      "that",
+      "the optic nerve",
+      "your eyes",
+      "vision loss",
+      "different types",
+      "the most common type",
+      "open angle glaucoma"
+    ],
+    "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Healthy Sleep",
+    "symptoms": [
+      "your brain",
+      "body functions",
+      "a natural process",
+      "energy",
+      "memory",
+      "different stages",
+      "non rapid eye movement",
+      "non rem sleep",
+      "rapid eye movement",
+      "rem sleep"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Legionnaires' Disease",
+    "symptoms": [
+      "what",
+      "legionnaires disease",
+      "a serious type",
+      "pneumonia",
+      "legionella bacteria",
+      "the disease",
+      "its name",
+      "a group",
+      "an american legion convention",
+      "this type"
+    ],
+    "seen": 4,
+    "source": "online"
+  },
+  {
+    "disease": "Lewy Body Dementia",
+    "symptoms": [
+      "what",
+      "lbd lewy body dementia",
+      "the most common types",
+      "older adults",
+      "a loss",
+      "mental functions",
+      "your daily life",
+      "these functions",
+      "your ability",
+      "sense"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Meniere's Disease",
+    "symptoms": [
+      "meniere s disease",
+      "a disorder",
+      "the inner ear",
+      "severe dizziness",
+      "a roaring sound",
+      "your ears",
+      "the feeling",
+      "ear pressure",
+      "pain",
+      "just one ear"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Meningococcal Disease",
+    "symptoms": [
+      "what",
+      "the name",
+      "any illness",
+      "neisseria meningitidis bacteria",
+      "meningococcal bacteria",
+      "these illnesses",
+      "infections",
+      "the lining",
+      "the brain",
+      "spinal cord"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Nose Injuries and Disorders",
+    "symptoms": [
+      "your nose",
+      "your health",
+      "the air",
+      "germs",
+      "your lungs",
+      "the nerve cells",
+      "your sense",
+      "smell",
+      "a problem",
+      "your whole body"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Peripheral Nerve Disorders",
+    "symptoms": [
+      "peripheral nerves nerves",
+      "wires",
+      "that",
+      "your brain",
+      "your peripheral nerves",
+      "spinal cord",
+      "all parts",
+      "your muscles",
+      "peripheral nerves"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Polio and Post-Polio Syndrome",
+    "symptoms": [
+      "a disease",
+      "that",
+      "person",
+      "the poliovirus",
+      "the virus",
+      "the nervous system",
+      "serious cases",
+      "the body",
+      "the paralysis",
+      "the united states"
+    ],
+    "seen": 4,
+    "source": "online"
+  },
+  {
+    "disease": "Respiratory Failure",
+    "symptoms": [
+      "what",
+      "a condition",
+      "your blood",
+      "enough oxygen",
+      "too much carbon dioxide",
+      "both problems",
+      "your lungs",
+      "the oxygen",
+      "your organs",
+      "your heart"
+    ],
+    "seen": 4,
+    "source": "online"
+  },
+  {
+    "disease": "Salivary Gland Disorders",
+    "symptoms": [
+      "your salivary glands",
+      "your mouth",
+      "three pairs",
+      "major salivary glands",
+      "small minor glands",
+      "openings",
+      "ducts",
+      "your food",
+      "antibodies",
+      "that"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Sarcoidosis",
+    "symptoms": [
+      "a condition",
+      "groups",
+      "your immune system",
+      "these lumps",
+      "granulomas",
+      "any organ",
+      "the body",
+      "the lungs",
+      "lymph nodes",
+      "the chest"
+    ],
+    "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Sjogren's Syndrome",
+    "symptoms": [
+      "sjogren s syndrome",
+      "sjogren s disease",
+      "an autoimmune disease",
+      "your immune system",
+      "healthy tissues",
+      "the glands",
+      "that",
+      "moisture",
+      "the eyes",
+      "other parts"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Tanning",
+    "symptoms": [
+      "a tan",
+      "them",
+      "a healthy glow",
+      "a tanning bed",
+      "harmful rays",
+      "health problems",
+      "other skin cancers",
+      "uv rays",
+      "the skin sunlight",
+      "a mixture"
+    ],
+    "seen": 4,
+    "source": "online"
+  },
+  {
+    "disease": "Tetanus, Diphtheria, and Pertussis Vaccines",
+    "symptoms": [
+      "whooping cough",
+      "serious bacterial infections",
+      "an uncommon disease",
+      "that",
+      "immediate treatment",
+      "a hospital",
+      "painful tightening",
+      "the muscles",
+      "the body",
+      "the jaw"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Tuberculosis",
+    "symptoms": [
+      "what",
+      "tb tuberculosis",
+      "a bacterial disease",
+      "the lungs",
+      "other parts",
+      "the body",
+      "the kidneys",
+      "spine",
+      "not everyone",
+      "tb bacteria"
+    ],
+    "seen": 4,
+    "source": "online"
+  },
+  {
+    "disease": "Whooping Cough",
+    "symptoms": [
+      "whooping cough whooping cough",
+      "a respiratory infection",
+      "serious cases",
+      "the coughing",
+      "the name",
+      "the disease",
+      "the whooping noise",
+      "anyone",
+      "the vaccine",
+      "about half"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Wrist Injuries and Disorders",
+    "symptoms": [
+      "your wrist",
+      "your hand",
+      "your forearm",
+      "one big joint",
+      "several small joints",
+      "different ways",
+      "the wrist",
+      "two big forearm bones",
+      "eight small bones",
+      "connective tissues"
+    ],
+    "seen": 2,
+    "source": "online"
+  }
+]

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Health Prediction • Dashboard</title>
+    <link rel="icon" href="data:,">
+    <style>
+        :root{
+            --bg0:#0b1220;
+            --bg1:#0f1a33;
+            --card:#0f1b31cc;
+            --card2:#0f1b31;
+            --border:#22304f;
+            --text:#e8eefc;
+            --muted:#a9b6d3;
+            --accent:#7c5cff;
+            --accent2:#22c55e;
+            --warn:#f59e0b;
+            --bad:#ef4444;
+            --shadow: 0 18px 40px rgba(0,0,0,.35);
+            --radius: 16px;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            color:var(--text);
+            background:
+                radial-gradient(1200px 600px at 20% -10%, #3b82f633 0%, transparent 55%),
+                radial-gradient(900px 500px at 90% 0%, #a78bfa2b 0%, transparent 55%),
+                linear-gradient(160deg, var(--bg0) 0%, var(--bg1) 100%);
+        }
+        a{color:inherit}
+        .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+        header{
+            display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;
+            margin-bottom:18px;
+        }
+        .title{
+            display:flex;flex-direction:column;gap:6px;
+        }
+        .title h1{margin:0;font-size:22px;letter-spacing:.2px}
+        .subtitle{color:var(--muted);font-size:13px;line-height:1.35}
+        .pillrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+        .pill{
+            display:inline-flex;align-items:center;gap:8px;
+            border:1px solid var(--border);
+            background: #0b1530aa;
+            padding:8px 10px;border-radius:999px;
+            font-size:12px;color:var(--muted)
+        }
+        .dot{width:8px;height:8px;border-radius:999px;background:var(--warn)}
+        .dot.ok{background:var(--accent2)}
+        .dot.bad{background:var(--bad)}
+        .btn{
+            border:1px solid var(--border);
+            background: #0b1530aa;
+            color:var(--text);
+            padding:10px 12px;
+            border-radius:12px;
+            cursor:pointer;
+            font-weight:650;
+            font-size:13px;
+        }
+        .btn.primary{
+            border-color:#3b2dd6;
+            background: linear-gradient(135deg, #6d28d9 0%, #2563eb 100%);
+        }
+        .btn:disabled{opacity:.6;cursor:not-allowed}
+        .grid{
+            display:grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap:16px;
+        }
+        @media (max-width: 960px){
+            .grid{grid-template-columns: 1fr}
+        }
+        .card{
+            border:1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,.02) 100%);
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            padding:16px;
+        }
+        .card h2{margin:0 0 10px 0;font-size:14px;color:#dbe7ff;letter-spacing:.3px}
+        .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+        .field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:180px}
+        label{font-size:12px;color:var(--muted);font-weight:650}
+        textarea,input{
+            width:100%;
+            border:1px solid var(--border);
+            background:#081126;
+            color:var(--text);
+            border-radius:12px;
+            padding:12px 12px;
+            outline:none;
+            font-size:14px;
+        }
+        textarea{min-height:120px;resize:vertical;line-height:1.45}
+        input::placeholder, textarea::placeholder{color:#7f91b6}
+        .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+        .chip{
+            border:1px solid var(--border);
+            background:#071025;
+            color:var(--muted);
+            padding:6px 10px;
+            border-radius:999px;
+            font-size:12px;
+            cursor:pointer;
+        }
+        .chip:hover{border-color:#3b82f6aa}
+        .hint{font-size:12px;color:var(--muted);line-height:1.4}
+        .split{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap:10px;
+        }
+        @media (max-width: 640px){
+            .split{grid-template-columns: 1fr}
+        }
+        .hr{height:1px;background:var(--border);margin:14px 0}
+        .statusgrid{display:grid;grid-template-columns:1fr;gap:10px}
+        .stat{
+            display:flex;align-items:center;justify-content:space-between;gap:10px;
+            border:1px solid var(--border);
+            background:#071025;
+            padding:10px 12px;border-radius:14px;
+        }
+        .stat .k{font-size:12px;color:var(--muted);font-weight:700}
+        .badge{
+            font-size:12px;
+            font-weight:800;
+            padding:6px 10px;
+            border-radius:999px;
+            border:1px solid var(--border);
+            background:#061023;
+        }
+        .badge.ok{border-color:#14532d;background:#052014;color:#a7f3d0}
+        .badge.warn{border-color:#78350f;background:#201105;color:#fde68a}
+        .badge.bad{border-color:#7f1d1d;background:#1f0a0a;color:#fecaca}
+        .results{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap:16px;
+            margin-top:16px;
+        }
+        @media (max-width: 960px){
+            .results{grid-template-columns:1fr}
+        }
+        .list{display:flex;flex-direction:column;gap:10px}
+        .item{
+            border:1px solid var(--border);
+            background:#071025;
+            padding:12px 12px;border-radius:14px;
+            display:flex;align-items:center;justify-content:space-between;gap:12px;
+        }
+        .name{font-weight:800}
+        .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+        .tag{
+            font-size:11px;font-weight:800;
+            padding:4px 8px;border-radius:999px;
+            border:1px solid var(--border);
+            background:#081126;
+            color:var(--muted);
+        }
+        .tag.online{border-color:#0ea5e9aa;color:#bae6fd}
+        .tag.ml{border-color:#a78bfa88;color:#ddd6fe}
+        .tag.learned{border-color:#22c55e88;color:#bbf7d0}
+        .score{
+            min-width:86px;
+            text-align:right;
+            font-weight:900;
+            color:#e0e7ff;
+        }
+        .symptags{display:flex;gap:8px;flex-wrap:wrap}
+        .symptag{
+            font-size:12px;
+            padding:6px 10px;
+            border-radius:999px;
+            border:1px solid var(--border);
+            background:#081126;
+            color:#cfe0ff;
+        }
+        .symptag.unknown{border-color:#f59e0b88;color:#fde68a}
+        details summary{cursor:pointer;color:#dbe7ff;font-weight:800}
+        pre{
+            margin:10px 0 0 0;
+            padding:12px;
+            border-radius:14px;
+            border:1px solid var(--border);
+            background:#061023;
+            overflow:auto;
+            color:#b9c7e6;
+            font-size:12px;
+            line-height:1.45;
+        }
+        .toast{
+            margin-top:12px;
+            padding:10px 12px;
+            border-radius:14px;
+            border:1px solid var(--border);
+            background:#071025;
+            color:var(--muted);
+            font-size:12px;
+        }
+        .toast.bad{border-color:#7f1d1d;background:#1f0a0a;color:#fecaca}
+        .toast.ok{border-color:#14532d;background:#052014;color:#bbf7d0}
+        .progress{
+            display:none;
+            margin-top:12px;
+            border:1px solid var(--border);
+            background:#071025;
+            border-radius:14px;
+            padding:12px;
+        }
+        .progress.show{display:block}
+        .steps{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+        .step{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+        .spin{
+            width:14px;height:14px;border-radius:999px;
+            border:2px solid #2a3a62;
+            border-top-color:#7c5cff;
+            animation: s 1s linear infinite;
+        }
+        @keyframes s{to{transform:rotate(360deg)}}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="title">
+                <h1>AI Health Prediction Dashboard</h1>
+                <div class="subtitle">
+                    Natural-language symptoms → NLP extraction (known + unknown) → ML predictions → optional online learning when confidence is low.
+                    Backend endpoints used: <span class="tag">/health</span> <span class="tag">/ml/predict</span> <span class="tag">/meta</span>
+                </div>
+            </div>
+            <div class="pillrow">
+                <div class="pill" id="pillApi"><span class="dot" id="dotApi"></span><span id="apiText">Connecting…</span></div>
+                <button class="btn" id="btnReconnect" type="button">Reconnect</button>
+                <button class="btn primary" id="btnPredictTop" type="button">Run prediction</button>
+            </div>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Symptom Input</h2>
+                <div class="field">
+                    <label for="symptomText">Describe symptoms (natural language)</label>
+                    <textarea id="symptomText" placeholder="Example: I have eye pain and redness, and I feel dizzy."></textarea>
+                    <div class="chips" id="exampleChips"></div>
+                    <div class="hint">
+                        Tip: unknown phrases are <b>not discarded</b>. If the ML model is unsure, the system searches external medical sources and stores unverified patterns for reuse.
+                    </div>
+                </div>
+
+                <div class="hr"></div>
+                <h2>Optional context</h2>
+                <div class="split">
+                    <div class="field">
+                        <label for="bloodSugar">Blood sugar (mg/dL)</label>
+                        <input id="bloodSugar" type="number" placeholder="e.g., 100">
+                    </div>
+                    <div class="field">
+                        <label for="bp">Blood pressure</label>
+                        <input id="bp" type="text" placeholder="e.g., 120/80">
+                    </div>
+                </div>
+                <div class="field" style="margin-top:10px">
+                    <label for="history">History (comma-separated)</label>
+                    <input id="history" type="text" placeholder="e.g., diabetes, asthma">
+                </div>
+
+                <div class="row" style="margin-top:12px;justify-content:flex-end">
+                    <button class="btn" id="btnClear" type="button">Clear</button>
+                    <button class="btn primary" id="btnPredict" type="button">Predict</button>
+                </div>
+
+                <div class="progress" id="progress">
+                    <div class="steps">
+                        <div class="step"><span class="spin"></span><span id="progressText">Working…</span></div>
+                    </div>
+                </div>
+
+                <div class="toast bad" id="errBox" style="display:none"></div>
+                <div class="toast ok" id="okBox" style="display:none"></div>
+            </div>
+
+            <div class="card">
+                <h2>System Status</h2>
+                <div class="field">
+                    <label for="apiOverride">API base (optional override)</label>
+                    <input id="apiOverride" type="text" placeholder="e.g., http://127.0.0.1:8001">
+                    <div class="hint">You can also use <span class="tag">?api=http://127.0.0.1:8001</span> in the URL.</div>
+                </div>
+                <div class="hr"></div>
+                <div class="statusgrid" id="statusGrid"></div>
+                <div class="hr"></div>
+                <details>
+                    <summary>Debug (raw response)</summary>
+                    <pre id="rawOut">{}</pre>
+                </details>
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="card">
+                <h2>Extracted symptoms</h2>
+                <div class="hint" style="margin-bottom:10px">Known symptoms feed the ML model. Unknown symptoms still trigger online learning/search when confidence is low.</div>
+                <div class="symptags" id="sxTags"></div>
+                <div class="hr"></div>
+                <details>
+                    <summary>Extracted phrases (what the NLP saw)</summary>
+                    <pre id="phrasesOut">[]</pre>
+                </details>
+            </div>
+
+            <div class="card">
+                <h2>Predictions (ML / database)</h2>
+                <div class="list" id="mlList"></div>
+            </div>
+
+            <div class="card">
+                <h2>External results (online / learned)</h2>
+                <div class="hint" id="onlineHint" style="margin-bottom:10px">Shown when the backend searched online or reused learned online entries.</div>
+                <div class="list" id="onlineList"></div>
+            </div>
+
+            <div class="card">
+                <h2>Messages & Note</h2>
+                <div class="list" id="msgList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ---- API resolution ----
+        let API_URL = null;
+        // Prefer the newest backend build (has /meta and learning_job_id).
+        const API_CANDIDATES = [
+            'http://127.0.0.1:8001',
+            'http://localhost:8001',
+            'http://127.0.0.1:8000',
+            'http://localhost:8000',
+        ];
+
+        const $ = (id) => document.getElementById(id);
+
+        function stripTrailingSlash(s){ return (s || '').replace(/\/+$/,''); }
+
+        function getApiOverrideFromQuery(){
+            try{
+                const u = new URL(window.location.href);
+                const api = u.searchParams.get('api');
+                return api ? stripTrailingSlash(api) : null;
+            }catch(_){ return null; }
+        }
+
+        async function probeHealth(base){
+            const r = await fetch(`${base}/health`, { cache: 'no-store' });
+            if(!r.ok) throw new Error('health_not_ok');
+            return await r.json();
+        }
+
+        async function probeMetaHasNewSchema(base){
+            try{
+                const r = await fetch(`${base}/meta`, { cache: 'no-store' });
+                if(!r.ok) return false;
+                const m = await r.json();
+                const fields = m && m.prediction_response_fields;
+                if(Array.isArray(fields)){
+                    return fields.includes('learning_job_id');
+                }
+                // if meta exists but doesn't include fields, accept it
+                return true;
+            }catch(_){
+                return false;
+            }
+        }
+
+        async function resolveApiBase(){
+            const overrideQ = getApiOverrideFromQuery();
+            const overrideI = stripTrailingSlash($('apiOverride').value || '');
+            const candidates = [];
+            if(overrideI) candidates.push(overrideI);
+            if(overrideQ) candidates.push(overrideQ);
+            // try same-origin if it looks like a backend (not Live Server)
+            try{
+                if(window.location?.origin?.startsWith('http') && /:(8000|8001)$/.test(window.location.origin)){
+                    candidates.push(stripTrailingSlash(window.location.origin));
+                }
+            }catch(_){}
+            candidates.push(...API_CANDIDATES);
+
+            for(const base of candidates){
+                try{
+                    const health = await probeHealth(base);
+                    // Avoid stale servers: require /meta with new schema when possible
+                    const ok = await probeMetaHasNewSchema(base);
+                    if(ok){
+                        return { base, health };
+                    }
+                }catch(_){}
+            }
+            // fallback to first candidate even if offline
+            return { base: candidates[0] || 'http://127.0.0.1:8000', health: null };
+        }
+
+        function setApiPill(ok, text){
+            $('apiText').textContent = text;
+            const dot = $('dotApi');
+            dot.classList.remove('ok','bad');
+            if(ok === true) dot.classList.add('ok');
+            else if(ok === false) dot.classList.add('bad');
+        }
+
+        function mkStatRow(k, v, tone){
+            const el = document.createElement('div');
+            el.className = 'stat';
+            const left = document.createElement('div');
+            left.className = 'k';
+            left.textContent = k;
+            const b = document.createElement('div');
+            b.className = `badge ${tone || ''}`.trim();
+            b.textContent = v;
+            el.appendChild(left);
+            el.appendChild(b);
+            return el;
+        }
+
+        function renderHealth(health){
+            const g = $('statusGrid');
+            g.innerHTML = '';
+            if(!health){
+                g.appendChild(mkStatRow('Backend', 'OFFLINE', 'bad'));
+                g.appendChild(mkStatRow('Tip', 'Start uvicorn on 8000/8001', 'warn'));
+                return;
+            }
+            g.appendChild(mkStatRow('Backend', 'ONLINE', 'ok'));
+            g.appendChild(mkStatRow('Model loaded', String(!!health.model_loaded), health.model_loaded ? 'ok' : 'bad'));
+            g.appendChild(mkStatRow('Model classes', String(health.model_classes ?? '—'), ''));
+            g.appendChild(mkStatRow('Model features', String(health.model_features ?? '—'), ''));
+            // Support both old and new health payloads
+            if (health.symptom_dictionary_size !== undefined) {
+                g.appendChild(mkStatRow('Symptom dictionary', String(health.symptom_dictionary_size ?? '—'), ''));
+            }
+            if (health.learned_patterns_count !== undefined) {
+                g.appendChild(mkStatRow('Learned patterns', String(health.learned_patterns_count ?? '—'), ''));
+            }
+            if (health.verified_diseases !== undefined) {
+                g.appendChild(mkStatRow('Verified diseases', String(health.verified_diseases ?? '—'), ''));
+            }
+            if (health.raw_diseases !== undefined) {
+                g.appendChild(mkStatRow('Raw diseases', String(health.raw_diseases ?? '—'), ''));
+            }
+            if (health.symptom_db_count !== undefined) {
+                g.appendChild(mkStatRow('Symptom DB', String(health.symptom_db_count ?? '—'), ''));
+            }
+            g.appendChild(mkStatRow('Optional AI configured', String(!!health.optional_ai_configured), health.optional_ai_configured ? 'ok' : 'warn'));
+        }
+
+        async function connect(){
+            setApiPill(null, 'Connecting…');
+            const { base, health } = await resolveApiBase();
+            API_URL = stripTrailingSlash(base);
+            if(health){
+                setApiPill(true, `API connected • ${API_URL}`);
+            }else{
+                setApiPill(false, `API not reachable • tried ${API_URL}`);
+            }
+            renderHealth(health);
+            // show meta (best-effort)
+            try{
+                const r = await fetch(`${API_URL}/meta`, { cache:'no-store' });
+                if(r.ok){
+                    const meta = await r.json();
+                    $('rawOut').textContent = JSON.stringify({ meta }, null, 2);
+                }
+            }catch(_){}
+        }
+
+        // ---- UI helpers ----
+        function showErr(msg){
+            $('errBox').style.display = 'block';
+            $('errBox').textContent = msg;
+            $('okBox').style.display = 'none';
+        }
+        function showOk(msg){
+            $('okBox').style.display = 'block';
+            $('okBox').textContent = msg;
+            $('errBox').style.display = 'none';
+        }
+        function clearToasts(){
+            $('errBox').style.display = 'none';
+            $('okBox').style.display = 'none';
+        }
+        function setProgress(on, text){
+            const p = $('progress');
+            if(on){ p.classList.add('show'); $('progressText').textContent = text || 'Working…'; }
+            else { p.classList.remove('show'); }
+        }
+
+        function pct(x){
+            const n = Number(x);
+            if(!Number.isFinite(n)) return '—';
+            return `${(n*100).toFixed(1)}%`;
+        }
+
+        function safeText(s){ return String(s ?? ''); }
+
+        function makeItem({ name, scoreText, tags }){
+            const row = document.createElement('div');
+            row.className = 'item';
+            const left = document.createElement('div');
+            const nm = document.createElement('div');
+            nm.className = 'name';
+            nm.textContent = name;
+            const meta = document.createElement('div');
+            meta.className = 'meta';
+            (tags || []).forEach(t => {
+                const span = document.createElement('span');
+                span.className = `tag ${t.cls || ''}`.trim();
+                span.textContent = t.text;
+                meta.appendChild(span);
+            });
+            left.appendChild(nm);
+            left.appendChild(meta);
+            const right = document.createElement('div');
+            right.className = 'score';
+            right.textContent = scoreText;
+            row.appendChild(left);
+            row.appendChild(right);
+            return row;
+        }
+
+        function renderPrediction(data){
+            $('rawOut').textContent = JSON.stringify(data, null, 2);
+
+            // symptoms tags
+            const sx = $('sxTags');
+            sx.innerHTML = '';
+            const known = Array.isArray(data.symptoms_detected) ? data.symptoms_detected : [];
+            const unknown = Array.isArray(data.unknown_symptoms) ? data.unknown_symptoms : [];
+            const all = [];
+            known.forEach(s => all.push({ s, unknown:false }));
+            unknown.forEach(s => all.push({ s, unknown:true }));
+            if(all.length === 0){
+                const t = document.createElement('span');
+                t.className = 'symptag unknown';
+                t.textContent = 'No symptoms detected';
+                sx.appendChild(t);
+            }else{
+                all.forEach(({s, unknown}) => {
+                    const t = document.createElement('span');
+                    t.className = `symptag ${unknown ? 'unknown' : ''}`.trim();
+                    t.textContent = safeText(s).replaceAll('_',' ');
+                    sx.appendChild(t);
+                });
+            }
+
+            $('phrasesOut').textContent = JSON.stringify(data.extracted_phrases || [], null, 2);
+
+            // ML list
+            const ml = $('mlList');
+            ml.innerHTML = '';
+            (data.diseases || []).forEach(d => {
+                ml.appendChild(makeItem({
+                    name: safeText(d.name),
+                    scoreText: pct(d.confidence),
+                    tags: [{ text:'ML/DB', cls:'ml' }]
+                }));
+            });
+            if(!data.diseases || data.diseases.length === 0){
+                ml.appendChild(makeItem({ name:'No predictions', scoreText:'—', tags:[{text:'ML/DB', cls:'ml'}] }));
+            }
+
+            // Online list (render only when backend says it searched online OR used learned)
+            const online = $('onlineList');
+            online.innerHTML = '';
+            const st = data.status || {};
+            const showOnline = !!(st.searched_online || st.used_learned_data);
+            $('onlineHint').textContent = showOnline
+                ? (st.used_learned_data ? 'Using previously learned online results.' : 'Confidence low → searched external sources and stored unverified patterns.')
+                : 'Not shown: backend did not search online / reuse learned data for this request.';
+
+            if(showOnline){
+                const arr = Array.isArray(data.online_results) ? data.online_results : [];
+                if(arr.length > 0){
+                    arr.forEach(d => {
+                        online.appendChild(makeItem({
+                            name: safeText(d.name),
+                            scoreText: pct(d.confidence),
+                            tags: [{ text: st.used_learned_data ? 'Learned' : 'Online', cls: st.used_learned_data ? 'learned' : 'online' }]
+                        }));
+                    });
+                }else if(Array.isArray(data.external_suggestions) && data.external_suggestions.length > 0){
+                    data.external_suggestions.forEach(n => {
+                        online.appendChild(makeItem({
+                            name: safeText(n),
+                            scoreText: '—',
+                            tags: [{ text:'Suggestion', cls:'online' }]
+                        }));
+                    });
+                }else{
+                    online.appendChild(makeItem({
+                        name:'External search returned no results',
+                        scoreText:'—',
+                        tags:[{text:'Online', cls:'online'}]
+                    }));
+                }
+            }else{
+                online.appendChild(makeItem({
+                    name:'No external search triggered',
+                    scoreText:'—',
+                    tags:[{text:'Online', cls:'online'}]
+                }));
+            }
+
+            // Messages & note
+            const msg = $('msgList');
+            msg.innerHTML = '';
+            const msgs = Array.isArray(data.messages) ? data.messages : [];
+            const core = [];
+            if(st){
+                core.push(`used_database: ${!!st.used_database}`);
+                core.push(`searched_online: ${!!st.searched_online}`);
+                core.push(`used_learned_data: ${!!st.used_learned_data}`);
+                if(st.confidence_level) core.push(`confidence_level: ${st.confidence_level}`);
+            }
+            core.concat(msgs).forEach(m => {
+                msg.appendChild(makeItem({ name: safeText(m), scoreText:'', tags:[{text:'Status'}] }));
+            });
+            if(data.note){
+                msg.appendChild(makeItem({ name: safeText(data.note), scoreText:'', tags:[{text:'Note'}] }));
+            }
+
+            // Background learning progress
+            if (data.learning_job_id) {
+                msg.appendChild(makeItem({ name: `learning_job_id: ${data.learning_job_id}`, scoreText:'', tags:[{text:'Learning'}] }));
+                pollLearningJob(data.learning_job_id);
+            }
+
+            showOk('Done.');
+        }
+
+        let _learningPollTimer = null;
+        let _learningStatusEl = null;
+        async function pollLearningJob(jobId){
+            if(!jobId || !API_URL) return;
+            if(_learningPollTimer) clearTimeout(_learningPollTimer);
+
+            const tick = async () => {
+                try{
+                    const r = await fetch(`${API_URL}/learning/status/${jobId}`, { cache:'no-store' });
+                    if(!r.ok) throw new Error('poll_failed');
+                    const j = await r.json();
+
+                    // Render into messages list (update single line; no UI spam)
+                    const msg = $('msgList');
+                    const line = `Learning status: ${j.status} • ${(Number(j.progress||0)*100).toFixed(0)}% • ${j.message || ''}`;
+                    if(!_learningStatusEl){
+                        _learningStatusEl = makeItem({ name: line, scoreText:'', tags:[{text:'Learning'}] });
+                        msg.appendChild(_learningStatusEl);
+                    }else{
+                        const nameEl = _learningStatusEl.querySelector('.name');
+                        if(nameEl) nameEl.textContent = line;
+                    }
+
+                    if(j.status === 'done'){
+                        const res = j.result || {};
+                        msg.appendChild(makeItem({ name: `Learning result: stored_raw=${res.stored_raw ?? 0}, promoted_verified=${res.promoted_verified ?? 0}`, scoreText:'', tags:[{text:'Learning'}] }));
+                        return;
+                    }
+                    if(j.status === 'error'){
+                        msg.appendChild(makeItem({ name: `Learning error: ${j.message || 'unknown'}`, scoreText:'', tags:[{text:'Learning'}] }));
+                        return;
+                    }
+                    _learningPollTimer = setTimeout(tick, 1200);
+                }catch(_){
+                    _learningPollTimer = setTimeout(tick, 2000);
+                }
+            };
+            _learningPollTimer = setTimeout(tick, 600);
+        }
+
+        function buildPayload(){
+            const text = $('symptomText').value.trim();
+            const history = $('history').value.split(',').map(x => x.trim()).filter(Boolean);
+            const bloodSugar = $('bloodSugar').value;
+            const bp = $('bp').value.trim();
+
+            const payload = { text };
+            if(history.length) payload.history = history;
+            if(bloodSugar || bp){
+                payload.vitals = {};
+                if(bloodSugar) payload.vitals.blood_sugar = Number(bloodSugar);
+                if(bp) payload.vitals.bp = bp;
+            }
+            return payload;
+        }
+
+        async function runPredict(){
+            clearToasts();
+            if(!API_URL){
+                await connect();
+            }
+            const payload = buildPayload();
+            if(!payload.text){
+                showErr('Please enter symptom text.');
+                return;
+            }
+            setProgress(true, 'Analyzing symptoms and predicting…');
+            $('btnPredict').disabled = true;
+            $('btnPredictTop').disabled = true;
+            try{
+                const r = await fetch(`${API_URL}/ml/predict`, {
+                    method:'POST',
+                    headers:{ 'Content-Type':'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if(!r.ok){
+                    const t = await r.text();
+                    throw new Error(`API error ${r.status}: ${t.slice(0,300)}`);
+                }
+                const data = await r.json();
+                setProgress(true, (data?.status?.searched_online || data?.status?.used_learned_data) ? 'Rendering results (including external)…' : 'Rendering results…');
+                renderPrediction(data);
+            }catch(e){
+                showErr(String(e?.message || e));
+            }finally{
+                setProgress(false);
+                $('btnPredict').disabled = false;
+                $('btnPredictTop').disabled = false;
+            }
+        }
+
+        function addExampleChips(){
+            const examples = [
+                'I have eye pain, redness in eye, and dizziness',
+                'I have fever, cough, and fatigue',
+                'My throat is sore and I have a runny nose with headache',
+                'I feel chest pain with sweating and nausea',
+            ];
+            const box = $('exampleChips');
+            box.innerHTML = '';
+            examples.forEach(t => {
+                const c = document.createElement('button');
+                c.type = 'button';
+                c.className = 'chip';
+                c.textContent = t;
+                c.addEventListener('click', () => { $('symptomText').value = t; });
+                box.appendChild(c);
+            });
+        }
+
+        // ---- events ----
+        $('btnReconnect').addEventListener('click', connect);
+        $('btnPredict').addEventListener('click', runPredict);
+        $('btnPredictTop').addEventListener('click', runPredict);
+        $('btnClear').addEventListener('click', () => {
+            $('symptomText').value = '';
+            $('bloodSugar').value = '';
+            $('bp').value = '';
+            $('history').value = '';
+            clearToasts();
+        });
+        $('apiOverride').addEventListener('change', async () => { await connect(); });
+
+        // init
+        addExampleChips();
+        connect();
+    </script>
+</body>
+</html>
