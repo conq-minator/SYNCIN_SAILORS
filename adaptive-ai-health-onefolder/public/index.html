@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7fbff" />
+    <meta
+      name="description"
+      content="Adaptive AI Health Intelligence System – Next.js frontend."
+    />
+    <title>Adaptive AI Health Intelligence System</title>
+    <style>
+      :root {
+        --bg: #f7fbff;
+        --card: #ffffff;
+        --border: #e6eef6;
+        --text: #0f172a;
+        --muted: #475569;
+        --blue: #2b6cb0;
+        --blueSoft: #e6f1ff;
+        --greenSoft: #e8f7ef;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: var(--bg);
+        color: var(--text);
+      }
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 32px 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #2f855a;
+        background: var(--greenSoft);
+      }
+      h1 {
+        margin: 14px 0 8px;
+        font-size: 26px;
+        letter-spacing: -0.02em;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      a.btn {
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        padding: 10px 14px;
+        font-weight: 800;
+        font-size: 14px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        background: #fff;
+      }
+      a.btn.primary {
+        background: var(--blue);
+        border-color: var(--blue);
+        color: #fff;
+      }
+      .note {
+        margin-top: 14px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: var(--blueSoft);
+        padding: 12px 14px;
+        color: var(--text);
+        font-size: 13px;
+      }
+      code {
+        background: rgba(15, 23, 42, 0.06);
+        padding: 2px 6px;
+        border-radius: 8px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="pill">Clinical • Minimal • Trustworthy</div>
+        <h1>Adaptive AI Health Intelligence System</h1>
+        <p>
+          This project is a <strong>Next.js</strong> app. Next.js automatically
+          connects and bundles all React/Tailwind components starting from
+          <code>pages/index.tsx</code>.
+        </p>
+
+        <div class="links">
+          <a class="btn primary" href="/">Open Intake (Next.js)</a>
+          <a class="btn" href="/results">Open Results (Next.js)</a>
+        </div>
+
+        <div class="note">
+          If you see this file directly (e.g., opening it from disk), the app
+          won’t run because it needs the Next.js dev/server. Start it with:
+          <code>npm install</code> then <code>npm run dev</code>.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
