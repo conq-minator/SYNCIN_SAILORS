@@ -5,7 +5,11 @@ import re
 from functools import lru_cache
 from typing import Iterable
 
-import spacy
+try:
+    import spacy
+except Exception as e:
+    print(f"Warning: spacy failed to import (likely python 3.14 compatibility): {e}")
+    spacy = None
 
 from utils.config import DATA_DIR
 from utils.symptom_db import find_symptom, load_symptom_db
@@ -54,11 +58,15 @@ def _nlp():
     spaCy pipeline loader.
     Falls back safely so the app doesn't crash if the model isn't present.
     """
+    if spacy is None:
+        return None
     try:
         return spacy.load(_MODEL_NAME)
     except Exception:
-        # Fallback: still tokenizes. No parser => no noun_chunks, so we'll rely on rule splitting.
-        return spacy.blank("en")
+        try:
+            return spacy.blank("en")
+        except Exception:
+            return None
 
 
 def _dedup_keep_order(items: Iterable[str]) -> list[str]:
@@ -118,49 +126,53 @@ def extract_raw_phrases(text: str) -> list[str]:
         return []
 
     nlp = _nlp()
-    doc = nlp(t)
-
+    
     phrases: list[str] = []
 
-    # 1) noun chunks when parser is available
-    try:
-        for chunk in doc.noun_chunks:
-            s = _clean_phrase(chunk.text)
-            s_l = s.lower()
-            if not s or s_l in _PRONOUNS:
-                continue
-            # skip leading "I have ..." style prefixes if they sneak in
-            w0 = s_l.split(" ", 1)[0]
-            if w0 in _BAD_START:
-                s = s.split(" ", 1)[1] if " " in s else ""
-            s = _clean_phrase(s)
-            if s and len(s) <= 60:
-                phrases.append(s)
-    except Exception:
-        # blank("en") has no noun_chunks
-        pass
-
-    # 2) add prepositional phrases like "<noun> in <noun>"
-    for tok in doc:
+    if nlp is not None:
         try:
-            if tok.dep_ != "pobj":
-                continue
-            if tok.head is None:
-                continue
-            if tok.head.lower_ not in _PREP_KEEP:
-                continue
-            head = tok.head
-            if head.head is None:
-                continue
-            left = head.head
-            if left.pos_ not in {"NOUN", "PROPN", "ADJ"}:
-                continue
-            span = doc[left.left_edge.i : tok.i + 1]
-            s = _clean_phrase(span.text)
-            if s and len(s) <= 60:
-                phrases.append(s)
+            doc = nlp(t)
+
+            # 1) noun chunks when parser is available
+            try:
+                for chunk in doc.noun_chunks:
+                    s = _clean_phrase(chunk.text)
+                    s_l = s.lower()
+                    if not s or s_l in _PRONOUNS:
+                        continue
+                    # skip leading "I have ..." style prefixes if they sneak in
+                    w0 = s_l.split(" ", 1)[0]
+                    if w0 in _BAD_START:
+                        s = s.split(" ", 1)[1] if " " in s else ""
+                    s = _clean_phrase(s)
+                    if s and len(s) <= 60:
+                        phrases.append(s)
+            except Exception:
+                pass
+
+            # 2) add prepositional phrases
+            for tok in doc:
+                try:
+                    if tok.dep_ != "pobj":
+                        continue
+                    if getattr(tok, "head", None) is None:
+                        continue
+                    if tok.head.lower_ not in _PREP_KEEP:
+                        continue
+                    head = tok.head
+                    if getattr(head, "head", None) is None:
+                        continue
+                    left = head.head
+                    if left.pos_ not in {"NOUN", "PROPN", "ADJ"}:
+                        continue
+                    span = doc[left.left_edge.i : tok.i + 1]
+                    s = _clean_phrase(span.text)
+                    if s and len(s) <= 60:
+                        phrases.append(s)
+                except Exception:
+                    continue
         except Exception:
-            continue
+            pass
 
     # 3) fallback split (never lose user input)
     # Treat common connectors as separators (including "with").

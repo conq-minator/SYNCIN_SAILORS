@@ -1,5 +1,36 @@
 [
   {
+    "disease": "abdominal lymph nodal and peritoneal TB",
+    "symptoms": [
+      "abdominal swelling",
+      "early satiety",
+      "unintentional weight loss",
+      "abdominal pain",
+      "predominant in individuals",
+      "any nausea",
+      "vomiting",
+      "then lymphocytic predominance",
+      "the chest",
+      "nonspecific symptoms of nausea"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Acalypha Skin infection",
+    "symptoms": [
+      "headache",
+      "nose bleeding",
+      "no apetite",
+      "stomach ache",
+      "teachers",
+      "approaches",
+      "bathe as required inhale"
+    ],
+    "seen": 1,
+    "source": "pubonline"
+  },
+  {
     "disease": "Acoustic Neuroma",
     "symptoms": [
       "an acoustic neuroma",
@@ -17,6 +48,23 @@
     "source": "online"
   },
   {
+    "disease": "Acral cutaneous malignant melanoma",
+    "symptoms": [
+      "hand pain",
+      "nausea",
+      "left hand pain",
+      "edema",
+      "a predetermined radiation dose",
+      "the registered protocol",
+      "two-hundred mg/kg/h",
+      "the required proton charge",
+      "the delivered dose",
+      "treatment delivered"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
     "disease": "Acute Bronchitis",
     "symptoms": [
       "an inflammation",
@@ -32,6 +80,23 @@
     ],
     "seen": 2,
     "source": "online"
+  },
+  {
+    "disease": "acute retinal necrosis syndrome",
+    "symptoms": [
+      "blurry vision",
+      "eye pain",
+      "redness",
+      "reduced visual acuity",
+      "vision",
+      "retinal bleeding",
+      "vision loss",
+      "vision loss in adults",
+      "periorbital pain",
+      "cystoid macular edema"
+    ],
+    "seen": 1,
+    "source": "pubtator"
   },
   {
     "disease": "Adenoids",
@@ -62,7 +127,7 @@
       "lung and liver disease",
       "this condition"
     ],
-    "seen": 4,
+    "seen": 6,
     "source": "online"
   },
   {
@@ -82,6 +147,18 @@
     "source": "online"
   },
   {
+    "disease": "Angina",
+    "symptoms": [
+      "shortness of breath",
+      "nausea or stomach pain",
+      "fatigue",
+      "dizziness or lightheadedness",
+      "sweating"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
     "disease": "Anthrax",
     "symptoms": [
       "a disease",
@@ -94,7 +171,24 @@
       "someone",
       "the u s mail"
     ],
-    "seen": 4,
+    "seen": 6,
+    "source": "online"
+  },
+  {
+    "disease": "Antibiotic Resistance",
+    "symptoms": [
+      "what",
+      "antibiotics antibiotics",
+      "medicines",
+      "bacterial infections",
+      "animals",
+      "the bacteria",
+      "lives",
+      "a growing problem",
+      "the effects",
+      "an antibiotic"
+    ],
+    "seen": 3,
     "source": "online"
   },
   {
@@ -132,6 +226,23 @@
     "source": "online"
   },
   {
+    "disease": "ARN syndrome",
+    "symptoms": [
+      "blurry vision",
+      "eye pain",
+      "redness",
+      "reduced visual acuity",
+      "vision",
+      "retinal bleeding",
+      "vision loss",
+      "vision loss in adults",
+      "periorbital pain",
+      "cystoid macular edema"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
     "disease": "Arthritis",
     "symptoms": [
       "any disorder",
@@ -144,7 +255,7 @@
       "most types",
       "joint pain"
     ],
-    "seen": 2,
+    "seen": 3,
     "source": "online"
   },
   {
@@ -161,8 +272,42 @@
       "some",
       "the lungs"
     ],
-    "seen": 5,
+    "seen": 7,
     "source": "online"
+  },
+  {
+    "disease": "asthma",
+    "symptoms": [
+      "chest tightness",
+      "sweating",
+      "shortness of breath",
+      "fatigue",
+      "her cough",
+      "chest pain",
+      "joint swelling",
+      "breathlessness",
+      "her chest",
+      "prednisolone"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "asthmatic",
+    "symptoms": [
+      "chest tightness",
+      "sweating",
+      "shortness of breath",
+      "fatigue",
+      "her cough",
+      "chest pain",
+      "joint swelling",
+      "breathlessness",
+      "her chest",
+      "prednisolone"
+    ],
+    "seen": 1,
+    "source": "pubtator"
   },
   {
     "disease": "Atrial Fibrillation",
@@ -180,6 +325,23 @@
     ],
     "seen": 2,
     "source": "online"
+  },
+  {
+    "disease": "bacterial infections",
+    "symptoms": [
+      "bone pain",
+      "fatigue and recurrent infections",
+      "bone pain at night",
+      "recurrent infections",
+      "chills cough fever",
+      "symptoms: chills cough fever",
+      "cough",
+      "a chest x-ray",
+      "community-acquired pneumonia",
+      "recurrent episodes of fever"
+    ],
+    "seen": 2,
+    "source": "pubtator"
   },
   {
     "disease": "Balance Problems",
@@ -216,6 +378,68 @@
     "source": "online"
   },
   {
+    "disease": "benign tumors",
+    "symptoms": [
+      "persistent hoarseness",
+      "difficulty swallowing",
+      "ear pain",
+      "a painless neck mass",
+      "a painless cervical mass",
+      "the resulting reduction",
+      "intra-operative bleeding",
+      "the edema time",
+      "bleeding",
+      "painless glomus vagale"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Body Weight",
+    "symptoms": [
+      "what",
+      "body weight body weight",
+      "the total mass",
+      "track",
+      "your weight",
+      "one way",
+      "your health",
+      "the whole story",
+      "that"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Bullous Pemphigoid",
+    "symptoms": [
+      "intense skin itching",
+      "large, fluid-filled blisters",
+      "redness or hive-like rash",
+      "mouth sores or blisters",
+      "inflamed skin"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
+    "disease": "Cancer",
+    "symptoms": [
+      "hand pain",
+      "nausea",
+      "left hand pain",
+      "edema",
+      "a predetermined radiation dose",
+      "the registered protocol",
+      "two-hundred mg/kg/h",
+      "the required proton charge",
+      "the delivered dose",
+      "treatment delivered"
+    ],
+    "seen": 3,
+    "source": "pubtator"
+  },
+  {
     "disease": "Carpal Tunnel Syndrome",
     "symptoms": [
       "what",
@@ -229,7 +453,7 @@
       "a narrow opening",
       "the bones"
     ],
-    "seen": 2,
+    "seen": 16,
     "source": "online"
   },
   {
@@ -250,6 +474,35 @@
     "source": "online"
   },
   {
+    "disease": "Celiac Disease",
+    "symptoms": [
+      "what",
+      "celiac disease celiac disease",
+      "that",
+      "your small intestine",
+      "the damage",
+      "absorbing vitamins",
+      "minerals",
+      "other nutrients",
+      "the food"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Cellulitis",
+    "symptoms": [
+      "redness and inflammation",
+      "pain or tenderness",
+      "fever",
+      "chills",
+      "blisters or skin spots",
+      "skin dimpling"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
     "disease": "Chiari Malformation",
     "symptoms": [
       "chiari",
@@ -265,6 +518,40 @@
     ],
     "seen": 2,
     "source": "online"
+  },
+  {
+    "disease": "child abuse and neglect",
+    "symptoms": [
+      "strange combination",
+      "blue tongue",
+      "metallic taste",
+      "colored shapes",
+      "a powdered form",
+      "the reduction",
+      "therefore, the strong reduction",
+      "synesthetic reds",
+      "coloured sounds",
+      "discrete pitch"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "chromosomal syndrome",
+    "symptoms": [
+      "strange combination",
+      "blue tongue",
+      "metallic taste",
+      "colored shapes",
+      "a powdered form",
+      "the reduction",
+      "therefore, the strong reduction",
+      "synesthetic reds",
+      "coloured sounds",
+      "discrete pitch"
+    ],
+    "seen": 1,
+    "source": "pubtator"
   },
   {
     "disease": "Cold and Cough Medicines",
@@ -333,6 +620,53 @@
     "source": "online"
   },
   {
+    "disease": "Congenital Heart Defects",
+    "symptoms": [
+      "chds",
+      "the structure",
+      "the heart",
+      "the problems",
+      "these defects",
+      "a fetus s heart",
+      "the most common type",
+      "birth defect",
+      "the way",
+      "many types"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "congenital heart disease",
+    "symptoms": [
+      "strange combination",
+      "blue tongue",
+      "metallic taste",
+      "colored shapes",
+      "a powdered form",
+      "the reduction",
+      "therefore, the strong reduction",
+      "synesthetic reds",
+      "coloured sounds",
+      "discrete pitch"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Contact Dermatitis",
+    "symptoms": [
+      "itchy skin",
+      "red rash",
+      "blisters",
+      "swelling",
+      "burning sensation",
+      "tenderness"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
     "disease": "Cough",
     "symptoms": [
       "acute coughs",
@@ -342,6 +676,23 @@
     ],
     "seen": 2,
     "source": "online"
+  },
+  {
+    "disease": "cutaneous malignant melanoma in situ",
+    "symptoms": [
+      "hand pain",
+      "nausea",
+      "left hand pain",
+      "edema",
+      "a predetermined radiation dose",
+      "the registered protocol",
+      "two-hundred mg/kg/h",
+      "the required proton charge",
+      "the delivered dose",
+      "treatment delivered"
+    ],
+    "seen": 1,
+    "source": "pubtator"
   },
   {
     "disease": "Dengue",
@@ -357,8 +708,25 @@
       "outbreaks",
       "rainy seasons"
     ],
-    "seen": 3,
+    "seen": 21,
     "source": "online"
+  },
+  {
+    "disease": "diabetes mellitus",
+    "symptoms": [
+      "abdominal swelling",
+      "early satiety",
+      "unintentional weight loss",
+      "abdominal pain",
+      "predominant in individuals",
+      "any nausea",
+      "vomiting",
+      "then lymphocytic predominance",
+      "the chest",
+      "nonspecific symptoms of nausea"
+    ],
+    "seen": 1,
+    "source": "pubtator"
   },
   {
     "disease": "Diabetic Eye Problems",
@@ -373,6 +741,22 @@
       "your cells"
     ],
     "seen": 3,
+    "source": "online"
+  },
+  {
+    "disease": "Diets",
+    "symptoms": [
+      "all the cells",
+      "some cholesterol",
+      "your blood",
+      "the walls",
+      "your arteries",
+      "them",
+      "this",
+      "coronary artery disease",
+      "other heart diseases"
+    ],
+    "seen": 2,
     "source": "online"
   },
   {
@@ -461,6 +845,18 @@
     "source": "online"
   },
   {
+    "disease": "Erysipelas",
+    "symptoms": [
+      "fever",
+      "chills",
+      "fatigue",
+      "blisters or bullae",
+      "swollen lymph nodes"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
     "disease": "Evaluating Health Information",
     "symptoms": [
       "reliable health information",
@@ -494,6 +890,23 @@
     "source": "online"
   },
   {
+    "disease": "eye disease",
+    "symptoms": [
+      "blurry vision",
+      "eye pain",
+      "redness",
+      "reduced visual acuity",
+      "vision",
+      "retinal bleeding",
+      "vision loss",
+      "vision loss in adults",
+      "periorbital pain",
+      "cystoid macular edema"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
     "disease": "Eye Diseases",
     "symptoms": [
       "the eye even",
@@ -507,8 +920,36 @@
       "any symptoms",
       "a permanent loss"
     ],
-    "seen": 3,
+    "seen": 19,
     "source": "online"
+  },
+  {
+    "disease": "Fever",
+    "symptoms": [
+      "a fever",
+      "a body temperature",
+      "that",
+      "a normal temperature",
+      "person",
+      "a disease",
+      "a sign",
+      "an illness",
+      "infections"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Fibromyalgia",
+    "symptoms": [
+      "widespread musculoskeletal pain",
+      "fatigue and low energy",
+      "sleep disturbances",
+      "morning stiffness",
+      "headaches"
+    ],
+    "seen": 1,
+    "source": "gemini"
   },
   {
     "disease": "Fifth Disease",
@@ -607,7 +1048,75 @@
       "the most common type",
       "open angle glaucoma"
     ],
-    "seen": 3,
+    "seen": 19,
+    "source": "online"
+  },
+  {
+    "disease": "glomus vagal and jugular tumor",
+    "symptoms": [
+      "persistent hoarseness",
+      "difficulty swallowing",
+      "ear pain",
+      "a painless neck mass",
+      "a painless cervical mass",
+      "the resulting reduction",
+      "intra-operative bleeding",
+      "the edema time",
+      "bleeding",
+      "painless glomus vagale"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Gonorrhea",
+    "symptoms": [
+      "a sexually transmitted infection",
+      "sti",
+      "young adults",
+      "the bacteria",
+      "that",
+      "the genital tract",
+      "mouth",
+      "an infected partner",
+      "a pregnant woman",
+      "her baby"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Head and neck paragangliomas",
+    "symptoms": [
+      "persistent hoarseness",
+      "difficulty swallowing",
+      "ear pain",
+      "a painless neck mass",
+      "a painless cervical mass",
+      "the resulting reduction",
+      "intra-operative bleeding",
+      "the edema time",
+      "bleeding",
+      "painless glomus vagale"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Health Disparities",
+    "symptoms": [
+      "health differences",
+      "different groups",
+      "these health differences",
+      "certain diseaseshow",
+      "the diseases",
+      "many people",
+      "complications",
+      "the diseaseshow many people",
+      "a diseasewhether",
+      "a diseasethese groups"
+    ],
+    "seen": 2,
     "source": "online"
   },
   {
@@ -628,6 +1137,210 @@
     "source": "online"
   },
   {
+    "disease": "Hemorrhagic Fevers",
+    "symptoms": [
+      "ebola virus disease",
+      "a type",
+      "hemorrhagic fever",
+      "several different types",
+      "ebola viruses",
+      "occasional outbreaks",
+      "africa",
+      "ebola spread researchers",
+      "the virus",
+      "an infected animal"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Herpes Simplex Virus",
+    "symptoms": [
+      "painful blisters or sores",
+      "swollen lymph nodes",
+      "muscle aches",
+      "burning sensation during urination",
+      "headache"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
+    "disease": "Herpes Zoster (Shingles)",
+    "symptoms": [
+      "sensitivity to touch",
+      "itching",
+      "fever",
+      "headache",
+      "sensitivity to light",
+      "fatigue"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
+    "disease": "HIV infection",
+    "symptoms": [
+      "abdominal swelling",
+      "early satiety",
+      "unintentional weight loss",
+      "abdominal pain",
+      "predominant in individuals",
+      "any nausea",
+      "vomiting",
+      "then lymphocytic predominance",
+      "the chest",
+      "nonspecific symptoms of nausea"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "hyperviscosity syndrome",
+    "symptoms": [
+      "swollen lymph nodes",
+      "night sweats",
+      "weight loss",
+      "fever",
+      "symptoms such as fatigue",
+      "sloping edema",
+      "the reduction",
+      "headache may appear",
+      "globally reduced vesicular murmur",
+      "clinical supervision"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Impetigo",
+    "symptoms": [
+      "honey-colored crusts",
+      "fluid-filled blisters",
+      "itchy skin rash",
+      "swollen lymph nodes",
+      "oozing or weeping sores"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
+    "disease": "infection",
+    "symptoms": [
+      "abdominal swelling",
+      "early satiety",
+      "unintentional weight loss",
+      "abdominal pain",
+      "predominant in individuals",
+      "any nausea",
+      "vomiting",
+      "then lymphocytic predominance",
+      "the chest",
+      "nonspecific symptoms of nausea"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Infections and Pregnancy",
+    "symptoms": [
+      "your pregnancy during pregnancy",
+      "some common infections",
+      "the common cold",
+      "a skin infection",
+      "serious problems",
+      "some infections",
+      "the flu",
+      "other infections",
+      "your fetus",
+      "both"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Infectious Diseases",
+    "symptoms": [
+      "bone pain",
+      "fatigue and recurrent infections",
+      "bone pain at night",
+      "recurrent infections",
+      "chills cough fever",
+      "symptoms: chills cough fever",
+      "cough",
+      "a chest x-ray",
+      "community-acquired pneumonia",
+      "recurrent episodes of fever"
+    ],
+    "seen": 2,
+    "source": "pubtator"
+  },
+  {
+    "disease": "influenza B",
+    "symptoms": [
+      "chest tightness",
+      "sweating",
+      "shortness of breath",
+      "fatigue",
+      "her cough",
+      "chest pain",
+      "joint swelling",
+      "breathlessness",
+      "her chest",
+      "prednisolone"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "influenza-like symptoms",
+    "symptoms": [
+      "chest tightness",
+      "sweating",
+      "shortness of breath",
+      "fatigue",
+      "her cough",
+      "chest pain",
+      "joint swelling",
+      "breathlessness",
+      "her chest",
+      "prednisolone"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "jugular tumor",
+    "symptoms": [
+      "persistent hoarseness",
+      "difficulty swallowing",
+      "ear pain",
+      "a painless neck mass",
+      "a painless cervical mass",
+      "the resulting reduction",
+      "intra-operative bleeding",
+      "the edema time",
+      "bleeding",
+      "painless glomus vagale"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Kola nut Skin infection",
+    "symptoms": [
+      "headache",
+      "nose bleeding",
+      "no apetite",
+      "stomach ache",
+      "teachers",
+      "approaches",
+      "bathe as required inhale"
+    ],
+    "seen": 1,
+    "source": "pubonline"
+  },
+  {
     "disease": "Legionnaires' Disease",
     "symptoms": [
       "what",
@@ -641,7 +1354,24 @@
       "an american legion convention",
       "this type"
     ],
-    "seen": 4,
+    "seen": 6,
+    "source": "online"
+  },
+  {
+    "disease": "Leukemia",
+    "symptoms": [
+      "what",
+      "leukemia leukemia",
+      "a term",
+      "cancers",
+      "the blood cells",
+      "blood forming tissues",
+      "the bone marrow",
+      "your bone marrow",
+      "the cells",
+      "white blood cells"
+    ],
+    "seen": 1,
     "source": "online"
   },
   {
@@ -660,6 +1390,72 @@
     ],
     "seen": 1,
     "source": "online"
+  },
+  {
+    "disease": "liver disease",
+    "symptoms": [
+      "abdominal swelling",
+      "early satiety",
+      "unintentional weight loss",
+      "abdominal pain",
+      "predominant in individuals",
+      "any nausea",
+      "vomiting",
+      "then lymphocytic predominance",
+      "the chest",
+      "nonspecific symptoms of nausea"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "localized cutaneous malignant melanoma",
+    "symptoms": [
+      "hand pain",
+      "nausea",
+      "left hand pain",
+      "edema",
+      "a predetermined radiation dose",
+      "the registered protocol",
+      "two-hundred mg/kg/h",
+      "the required proton charge",
+      "the delivered dose",
+      "treatment delivered"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Lyme Disease",
+    "symptoms": [
+      "fever",
+      "chills",
+      "headache",
+      "fatigue",
+      "muscle and joint aches",
+      "swollen lymph nodes",
+      "erythema migrans (bull's-eye rash",
+      "neck stiffness"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
+    "disease": "Main disease",
+    "symptoms": [
+      "headache",
+      "nose bleeding",
+      "no apetite",
+      "stomach ache",
+      "teachers",
+      "approaches",
+      "bathe as required inhale",
+      "store energy",
+      "liver cell damage",
+      "or scarring"
+    ],
+    "seen": 1,
+    "source": "pubonline"
   },
   {
     "disease": "Meniere's Disease",
@@ -692,6 +1488,89 @@
       "the brain",
       "spinal cord"
     ],
+    "seen": 16,
+    "source": "online"
+  },
+  {
+    "disease": "Menopause",
+    "symptoms": [
+      "menopause menopause",
+      "the time",
+      "your life",
+      "your period",
+      "a period",
+      "the menopausal transition",
+      "perimenopause",
+      "this transition"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "mental disease",
+    "symptoms": [
+      "strange combination",
+      "blue tongue",
+      "metallic taste",
+      "colored shapes",
+      "a powdered form",
+      "the reduction",
+      "therefore, the strong reduction",
+      "synesthetic reds",
+      "coloured sounds",
+      "discrete pitch"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "MIH disease",
+    "symptoms": [
+      "strange combination",
+      "blue tongue",
+      "metallic taste",
+      "colored shapes",
+      "a powdered form",
+      "the reduction",
+      "therefore, the strong reduction",
+      "synesthetic reds",
+      "coloured sounds",
+      "discrete pitch"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "MRSA",
+    "symptoms": [
+      "a staph infection",
+      "staff infection",
+      "that",
+      "several common antibiotics",
+      "two types",
+      "hospital associated mrsa",
+      "health care settings",
+      "community associated mrsa",
+      "who",
+      "skin"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Mycobacterial Infections",
+    "symptoms": [
+      "mycobacteria",
+      "a type",
+      "germ",
+      "many different kinds",
+      "the most common one",
+      "tuberculosis",
+      "another one",
+      "leprosy",
+      "still others",
+      "especially people"
+    ],
     "seen": 2,
     "source": "online"
   },
@@ -713,6 +1592,85 @@
     "source": "online"
   },
   {
+    "disease": "Obesity",
+    "symptoms": [
+      "what",
+      "obesity obesity",
+      "a disease",
+      "that",
+      "too much body fat",
+      "both terms",
+      "your weight",
+      "your height",
+      "body mass index",
+      "an adult"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Opioid Overdose",
+    "symptoms": [
+      "a type",
+      "oxycodone",
+      "hydrocodone",
+      "the illegal drug heroin",
+      "an opioid",
+      "a health care provider",
+      "a prescription",
+      "a major injury",
+      "them"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Opioids and Opioid Use Disorder (OUD)",
+    "symptoms": [
+      "a type",
+      "hydrocodone",
+      "the illegal drug heroin",
+      "an opioid",
+      "a health care provider",
+      "a prescription",
+      "a major injury",
+      "severe pain",
+      "health conditions"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "opportunistic infections",
+    "symptoms": [
+      "blurry vision",
+      "eye pain",
+      "redness",
+      "reduced visual acuity",
+      "vision",
+      "retinal bleeding",
+      "vision loss",
+      "vision loss in adults",
+      "periorbital pain",
+      "cystoid macular edema"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Panic attack",
+    "symptoms": [
+      "chest pain or discomfort",
+      "trembling or shaking",
+      "sweating",
+      "nausea or abdominal distress",
+      "fear of dying",
+      "numbness or tingling sensations"
+    ],
+    "seen": 1,
+    "source": "gemini"
+  },
+  {
     "disease": "Peripheral Nerve Disorders",
     "symptoms": [
       "peripheral nerves nerves",
@@ -725,8 +1683,42 @@
       "your muscles",
       "peripheral nerves"
     ],
-    "seen": 2,
+    "seen": 16,
     "source": "online"
+  },
+  {
+    "disease": "Pneumococcal Pneumonia",
+    "symptoms": [
+      "bone pain",
+      "fatigue and recurrent infections",
+      "bone pain at night",
+      "recurrent infections",
+      "chills cough fever",
+      "symptoms: chills cough fever",
+      "cough",
+      "a chest x-ray",
+      "community-acquired pneumonia",
+      "recurrent episodes of fever"
+    ],
+    "seen": 2,
+    "source": "pubtator"
+  },
+  {
+    "disease": "pneumonia",
+    "symptoms": [
+      "bone pain",
+      "fatigue and recurrent infections",
+      "bone pain at night",
+      "recurrent infections",
+      "chills cough fever",
+      "symptoms: chills cough fever",
+      "cough",
+      "a chest x-ray",
+      "community-acquired pneumonia",
+      "recurrent episodes of fever"
+    ],
+    "seen": 2,
+    "source": "pubtator"
   },
   {
     "disease": "Polio and Post-Polio Syndrome",
@@ -746,6 +1738,40 @@
     "source": "online"
   },
   {
+    "disease": "Rashes",
+    "symptoms": [
+      "a rash",
+      "an area",
+      "irritated or swollen skin",
+      "many rashes",
+      "some rashes",
+      "blisters",
+      "patches",
+      "raw skin",
+      "a symptom",
+      "many different medical problems"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "reflux disease",
+    "symptoms": [
+      "chest tightness",
+      "sweating",
+      "shortness of breath",
+      "fatigue",
+      "her cough",
+      "chest pain",
+      "joint swelling",
+      "breathlessness",
+      "her chest",
+      "prednisolone"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
     "disease": "Respiratory Failure",
     "symptoms": [
       "what",
@@ -759,8 +1785,25 @@
       "your organs",
       "your heart"
     ],
-    "seen": 4,
+    "seen": 6,
     "source": "online"
+  },
+  {
+    "disease": "S. pneumoniae infections",
+    "symptoms": [
+      "bone pain",
+      "fatigue and recurrent infections",
+      "bone pain at night",
+      "recurrent infections",
+      "chills cough fever",
+      "symptoms: chills cough fever",
+      "cough",
+      "a chest x-ray",
+      "community-acquired pneumonia",
+      "recurrent episodes of fever"
+    ],
+    "seen": 2,
+    "source": "pubtator"
   },
   {
     "disease": "Salivary Gland Disorders",
@@ -793,8 +1836,21 @@
       "lymph nodes",
       "the chest"
     ],
-    "seen": 3,
+    "seen": 19,
     "source": "online"
+  },
+  {
+    "disease": "Shingles",
+    "symptoms": [
+      "sensitivity to touch",
+      "itching",
+      "fever",
+      "headache",
+      "sensitivity to light",
+      "fatigue"
+    ],
+    "seen": 1,
+    "source": "gemini"
   },
   {
     "disease": "Sjogren's Syndrome",
@@ -811,6 +1867,56 @@
       "other parts"
     ],
     "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Skin infection",
+    "symptoms": [
+      "headache",
+      "nose bleeding",
+      "no apetite",
+      "stomach ache",
+      "teachers",
+      "approaches",
+      "bathe as required inhale",
+      "including covering",
+      "cut",
+      "bacteria cause cellulitis"
+    ],
+    "seen": 1,
+    "source": "pubonline"
+  },
+  {
+    "disease": "Staphylococcal Infections",
+    "symptoms": [
+      "what",
+      "a group",
+      "a type",
+      "staphylococcus aureus",
+      "most infections",
+      "staph bacteria",
+      "many different types",
+      "skin infections",
+      "the most common types"
+    ],
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "Streptococcal Infections",
+    "symptoms": [
+      "a type",
+      "bacteria",
+      "several types",
+      "the strep infections",
+      "group a",
+      "a strep",
+      "a sore red throat",
+      "your tonsils",
+      "white spots",
+      "scarlet fever"
+    ],
+    "seen": 2,
     "source": "online"
   },
   {
@@ -848,6 +1954,37 @@
     "source": "online"
   },
   {
+    "disease": "THEY CULTIVATED AROUND THE",
+    "symptoms": [
+      "headache",
+      "nose bleeding",
+      "no apetite",
+      "stomach ache",
+      "teachers",
+      "approaches",
+      "bathe as required inhale"
+    ],
+    "seen": 1,
+    "source": "pubonline"
+  },
+  {
+    "disease": "Tick Bites",
+    "symptoms": [
+      "what",
+      "ticks ticks",
+      "small parasites",
+      "insects",
+      "eight legs",
+      "the blood",
+      "warm blooded animals",
+      "many types",
+      "the united states",
+      "different parts"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
     "disease": "Tuberculosis",
     "symptoms": [
       "what",
@@ -861,7 +1998,124 @@
       "not everyone",
       "tb bacteria"
     ],
-    "seen": 4,
+    "seen": 1,
+    "source": "online"
+  },
+  {
+    "disease": "tumor",
+    "symptoms": [
+      "hand pain",
+      "nausea",
+      "left hand pain",
+      "edema",
+      "a predetermined radiation dose",
+      "the registered protocol",
+      "two-hundred mg/kg/h",
+      "the required proton charge",
+      "the delivered dose",
+      "treatment delivered"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "type B lymphoproliferative syndrome",
+    "symptoms": [
+      "swollen lymph nodes",
+      "night sweats",
+      "weight loss",
+      "fever",
+      "symptoms such as fatigue",
+      "sloping edema",
+      "the reduction",
+      "headache may appear",
+      "globally reduced vesicular murmur",
+      "clinical supervision"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "vagal and hypoglossal nerve paralysis",
+    "symptoms": [
+      "persistent hoarseness",
+      "difficulty swallowing",
+      "ear pain",
+      "a painless neck mass",
+      "a painless cervical mass",
+      "the resulting reduction",
+      "intra-operative bleeding",
+      "the edema time",
+      "bleeding",
+      "painless glomus vagale"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Waldenstrom'disease",
+    "symptoms": [
+      "swollen lymph nodes",
+      "night sweats",
+      "weight loss",
+      "fever",
+      "symptoms such as fatigue",
+      "sloping edema",
+      "the reduction",
+      "headache may appear",
+      "globally reduced vesicular murmur",
+      "clinical supervision"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Waldenstrom's disease",
+    "symptoms": [
+      "swollen lymph nodes",
+      "night sweats",
+      "weight loss",
+      "fever",
+      "symptoms such as fatigue",
+      "sloping edema",
+      "the reduction",
+      "headache may appear",
+      "globally reduced vesicular murmur",
+      "clinical supervision"
+    ],
+    "seen": 1,
+    "source": "pubtator"
+  },
+  {
+    "disease": "Weight Control",
+    "symptoms": [
+      "your weight",
+      "the united states",
+      "adults",
+      "this extra weight",
+      "your risk",
+      "many health conditions",
+      "heart disease",
+      "kidney disease"
+    ],
+    "seen": 2,
+    "source": "online"
+  },
+  {
+    "disease": "Weight Loss Surgery",
+    "symptoms": [
+      "extreme obesity",
+      "an option",
+      "serious health problems",
+      "different types",
+      "the amount",
+      "some types",
+      "all types",
+      "complications",
+      "hernias",
+      "blood clots"
+    ],
+    "seen": 2,
     "source": "online"
   },
   {
@@ -895,7 +2149,7 @@
       "eight small bones",
       "connective tissues"
     ],
-    "seen": 2,
+    "seen": 16,
     "source": "online"
   }
 ]

@@ -53,7 +53,7 @@ def search_diseases(symptoms: list[str], *, min_results: int = 4, top_k: int = 6
             time.sleep(1.2)
 
         print("Fetching diseases...")
-        disease_names = _stage1_fetch_diseases(norm_symptoms, limit=8)
+        disease_names = _stage1_fetch_diseases(norm_symptoms, limit=max(8, int(top_k)))
         if disease_names:
             learned: list[dict[str, Any]] = []
             for dname in disease_names:
@@ -186,6 +186,26 @@ def search_diseases(symptoms: list[str], *, min_results: int = 4, top_k: int = 6
     return []
 
 
+def fetch_candidate_diseases(symptoms: list[str], *, limit: int = 5) -> list[str]:
+    """
+    Stage-1 only: return disease candidate names for the symptom set.
+    Used for immediate UI suggestions while enrichment runs in background.
+    """
+    if not symptoms:
+        return []
+    norm_symptoms = [s.replace("_", " ").strip() for s in symptoms if s and str(s).strip()]
+    names = _stage1_fetch_diseases(norm_symptoms, limit=max(1, int(limit)))
+    # Dedup & trim
+    out: list[str] = []
+    for n in names:
+        n2 = re.sub(r"\s+", " ", str(n or "")).strip()
+        if n2 and n2.lower() not in {x.lower() for x in out}:
+            out.append(n2)
+        if len(out) >= limit:
+            break
+    return out
+
+
 def _stage1_fetch_diseases(symptoms_human: list[str], *, limit: int = 8) -> list[str]:
     """
     Stage 1: get disease names related to the symptom set.
@@ -276,6 +296,15 @@ def _validate_symptoms(disease: str, symptoms_any: list[str]) -> list[str]:
     if len(out) < 3:
         return []
     return out[:10]
+
+
+def fetch_disease_symptoms(disease: str) -> list[str]:
+    """
+    Public wrapper for Stage-2 enrichment.
+    Returns cleaned symptom TOKENS (underscore format) or [].
+    """
+    dsx = _stage2_fetch_symptoms_for_disease(disease)
+    return _validate_symptoms(disease, dsx)
 
 
 def _parse_python_list_of_strings(text: str, *, limit: int = 10) -> list[str]:

@@ -25,6 +25,7 @@ class RawDiseaseEntry:
 class VerifiedDiseaseEntry:
     disease: str
     symptoms: list[str]
+    source: str = "verified"
 
 
 def _ensure_files() -> None:
@@ -49,12 +50,25 @@ _BAD_DISEASE_TERMS = {
     "exam",
     "tests",
     "testing",
+    # prevent learning symptom words as "diseases"
+    "fever",
+    "cough",
+    "dizziness",
+    "fatigue",
+    "headache",
+    "nausea",
+    "vomiting",
+    "diarrhea",
+    "pain",
 }
 
 
 def _is_valid_disease_name(name: str) -> bool:
     n = _clean_disease_name(name).lower()
     if not n:
+        return False
+    # Reject single-word symptom-like names
+    if n in _BAD_DISEASE_TERMS:
         return False
     # Reject obvious non-disease topics
     if any(term in n for term in _BAD_DISEASE_TERMS):
@@ -80,7 +94,8 @@ def load_raw() -> list[RawDiseaseEntry]:
             if not name or not isinstance(sx, list):
                 continue
             sx_clean = clean_symptoms(sx)
-            if len(sx_clean) < 3:
+            # RAW quality gate: keep only entries with >= 4 clean symptoms
+            if len(sx_clean) < 4:
                 continue
             out.append(
                 RawDiseaseEntry(
@@ -121,7 +136,13 @@ def load_verified() -> list[VerifiedDiseaseEntry]:
             sx_clean = clean_symptoms(sx)
             if len(sx_clean) < 4:
                 continue
-            out.append(VerifiedDiseaseEntry(disease=name, symptoms=sx_clean[:10]))
+            out.append(
+                VerifiedDiseaseEntry(
+                    disease=name,
+                    symptoms=sx_clean[:10],
+                    source=str(it.get("source", "verified") or "verified"),
+                )
+            )
         return out
     except Exception:
         return []
@@ -129,19 +150,62 @@ def load_verified() -> list[VerifiedDiseaseEntry]:
 
 def save_verified(entries: list[VerifiedDiseaseEntry]) -> None:
     _ensure_files()
-    data = [{"disease": e.disease, "symptoms": clean_symptoms(e.symptoms)[:10]} for e in sorted(entries, key=lambda x: x.disease.lower())]
+    data = [
+        {"disease": e.disease, "symptoms": clean_symptoms(e.symptoms)[:10], "source": str(getattr(e, "source", "verified") or "verified")}
+        for e in sorted(entries, key=lambda x: x.disease.lower())
+    ]
     VERIFIED_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+def upsert_verified(disease: str, symptoms: list[str], *, source: str = "online") -> bool:
+    """
+    Store into VERIFIED DB (cleaned), merging symptoms if disease exists.
+    Strict rules:
+    - NEVER store disease with < 4 symptoms
+    """
+    name = _clean_disease_name(disease)
+    sx = clean_symptoms(symptoms)
+    if not _is_valid_disease_name(name) or len(sx) < 4:
+        return False
+
+    entries = load_verified()
+    key = name.lower()
+    for e in entries:
+        if e.disease.lower() == key:
+            e.symptoms = clean_symptoms([*e.symptoms, *sx])[:10]
+            e.source = getattr(e, "source", "verified") or "verified"
+            if source and source != "verified":
+                e.source = source
+            save_verified(entries)
+            return True
+
+    entries.append(VerifiedDiseaseEntry(disease=name, symptoms=sx[:10], source=source or "online"))
+    save_verified(entries)
+    return True
+
+
+def has_disease_with_symptoms(name: str, *, min_symptoms: int = 4) -> bool:
+    n = _clean_disease_name(name).lower()
+    if not n:
+        return False
+    for e in load_verified():
+        if e.disease.lower() == n and len(clean_symptoms(e.symptoms)) >= min_symptoms:
+            return True
+    for e in load_raw():
+        if e.disease.lower() == n and len(clean_symptoms(e.symptoms)) >= min_symptoms:
+            return True
+    return False
 
 
 def upsert_raw(disease: str, symptoms: list[str], *, source: str = "online") -> bool:
     """
     Store into RAW learning DB (cleaned). Increments seen count if already present.
     Strict rules:
-    - NEVER store disease with < 3 symptoms
+    - NEVER store disease with < 4 symptoms
     """
     name = _clean_disease_name(disease)
     sx = clean_symptoms(symptoms)
-    if not _is_valid_disease_name(name) or len(sx) < 3:
+    if not _is_valid_disease_name(name) or len(sx) < 4:
         return False
 
     entries = load_raw()

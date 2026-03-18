@@ -192,7 +192,7 @@ def predict_disease(request: PredictionRequest, background_tasks: BackgroundTask
         else:
             feature_vector = feature_vector[:expected]
     
-    # 4. Predict probabilities Using Model
+    # 4. Predict probabilities Using Model (ML live predictions)
     try:
         feature_names = get_feature_names()
         if feature_names and len(feature_names) == len(feature_vector):
@@ -248,23 +248,39 @@ def predict_disease(request: PredictionRequest, background_tasks: BackgroundTask
     from utils.background_learning import run_learning_job
 
     job = create_job()
-    background_tasks.add_task(
-        run_learning_job,
-        job.id,
-        normalized_symptoms=normalized_symptoms,
-        user_phrases=user_symptoms_phrases,
-    )
+    candidates_for_job: list[str] | None = None
+    low_conf = best_conf < 0.5
     searched_online = True
     search_state = "searching"
     messages.append("Learning from external sources... (running in background)")
 
     # Response lists
-    predictions_objects = [DiseasePrediction(name=str(m["name"]), confidence=float(m["confidence"]), source="verified") for m in verified_matches]
+    # Primary: verified DB matches. If none, fall back to live ML predictions.
+    predictions_objects: list[DiseasePrediction] = []
+    if verified_matches:
+        predictions_objects = [
+            DiseasePrediction(
+                name=str(m["name"]),
+                confidence=float(m["confidence"]),
+                source="verified",
+            )
+            for m in verified_matches
+        ]
+    else:
+        # Use ML model probabilities as suggestions when DB has no strong match.
+        predictions_objects = [
+            DiseasePrediction(
+                name=str(p["name"]),
+                confidence=float(p["confidence"]),
+                source="ml",
+            )
+            for p in predictions
+        ]
     # If nothing verified matches, still show RAW suggestions so the UI isn't empty.
     online_objects: list[DiseasePrediction] = []
     external_suggestions: list[str] = []
     if not predictions_objects and user_symptoms_phrases:
-        raw_suggestions = match_raw(user_symptoms_phrases)[:5]
+        raw_suggestions = [r for r in match_raw(user_symptoms_phrases) if float(r.get("confidence", 0.0)) > 0.0][:5]
         online_objects = [
             DiseasePrediction(
                 name=str(r.get("name")),
@@ -276,7 +292,110 @@ def predict_disease(request: PredictionRequest, background_tasks: BackgroundTask
         ]
         external_suggestions = [o.name for o in online_objects]
         if online_objects:
-            messages.append("No verified matches yet. Showing unverified suggestions while learning continues.")
+            messages.append("No verified matches yet. Showing learned suggestions while learning continues.")
+            # Ensure we still return 5 results by topping up with Gemini/Online candidates.
+            if len(online_objects) < 5:
+                try:
+                    need = 5 - len(online_objects)
+                    extra_online: list[str] = []
+                    from utils.pubtator_client import search_pmids, fetch_biocjson
+                    from utils.pubtator_client import _extract_diseases_from_bioc  # type: ignore
+                    from utils.online_search import fetch_candidate_diseases
+
+                    # PubTator candidate discovery first
+                    pmids = search_pmids(", ".join(user_symptoms_phrases), limit=5)
+                    docs = fetch_biocjson(pmids, full=False) if pmids else []
+                    extra_pub = _extract_diseases_from_bioc(docs) if docs else []
+                    extra_online = extra_pub or (fetch_candidate_diseases(normalized_symptoms, limit=12) or [])
+                    existing = {o.name.lower() for o in online_objects if o.name}
+                    picked_online: list[str] = []
+                    for n in extra_online:
+                        nn = str(n or "").strip()
+                        if not nn:
+                            continue
+                        if nn.lower() in existing or nn.lower() in {p.lower() for p in picked_online}:
+                            continue
+                        picked_online.append(nn)
+                        if len(picked_online) >= need:
+                            break
+                    for n in picked_online:
+                        online_objects.append(
+                            DiseasePrediction(
+                                name=n,
+                                confidence=0.0,
+                                source="pubtator_candidate",
+                            )
+                        )
+                    external_suggestions = [o.name for o in online_objects]
+                except Exception:
+                    pass
+        else:
+            # If RAW overlap is 0, show real online candidate diseases (stage-1) so results aren't "fixed".
+            try:
+                candidates: list[str] = []
+                candidates_source = "online_candidate"
+                # Prefer PubTator candidate discovery
+                from utils.pubtator_client import search_pmids, fetch_biocjson
+                from utils.pubtator_client import _extract_diseases_from_bioc  # type: ignore
+
+                pmids = search_pmids(", ".join(user_symptoms_phrases), limit=6)
+                docs = fetch_biocjson(pmids, full=False) if pmids else []
+                candidates = _extract_diseases_from_bioc(docs) if docs else []
+                if candidates:
+                    messages.append("PubTator candidate discovery: ok")
+                    candidates_source = "pubtator_candidate"
+                else:
+                    from utils.online_search import fetch_candidate_diseases
+
+                    candidates = fetch_candidate_diseases(normalized_symptoms, limit=12)
+                    candidates_source = "online_candidate"
+            except Exception:
+                candidates = []
+            if candidates:
+                # Ensure we return exactly 5 (fill with HF candidates if Gemini returned fewer).
+                uniq: list[str] = []
+                for n in candidates:
+                    nn = str(n or "").strip()
+                    if not nn:
+                        continue
+                    if nn.lower() not in {u.lower() for u in uniq}:
+                        uniq.append(nn)
+                    if len(uniq) >= 5:
+                        break
+                if len(uniq) < 5:
+                    try:
+                        from utils.online_search import fetch_candidate_diseases
+
+                        extra = fetch_candidate_diseases(normalized_symptoms, limit=12) or []
+                        for n in extra:
+                            nn = str(n or "").strip()
+                            if not nn:
+                                continue
+                            if nn.lower() not in {u.lower() for u in uniq}:
+                                uniq.append(nn)
+                            if len(uniq) >= 5:
+                                break
+                    except Exception:
+                        pass
+
+                online_objects = [DiseasePrediction(name=n, confidence=0.0, source=candidates_source) for n in uniq[:5]]
+                external_suggestions = [o.name for o in online_objects]
+                messages.append("Showing PubTator candidate diseases (symptom-related)." if candidates_source == "pubtator_candidate" else ("Low confidence. Enhancing results using online sources..." if low_conf else "Showing online candidate diseases (symptom-related)."))
+                messages.append("Learning new diseases and storing symptoms in background.")
+                candidates_for_job = [o.name for o in online_objects]
+
+    # Start learning job once (prefer enriching displayed candidates)
+    if online_objects and not candidates_for_job:
+        # If we displayed any external results, enrich those exact names in background.
+        candidates_for_job = [o.name for o in online_objects if o.name]
+    background_tasks.add_task(
+        run_learning_job,
+        job.id,
+        normalized_symptoms=normalized_symptoms,
+        user_phrases=user_symptoms_phrases,
+        candidate_diseases=candidates_for_job,
+        low_confidence=low_conf,
+    )
         
     return PredictionResponse(
         symptoms_detected=user_symptoms_phrases,

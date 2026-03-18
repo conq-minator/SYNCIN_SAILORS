@@ -276,8 +276,8 @@
                 <div class="row" style="margin-top:12px;justify-content:flex-end">
                     <button class="btn" id="btnClear" type="button">Clear</button>
                     <button class="btn primary" id="btnPredict" type="button">Predict</button>
-                </div>
-
+        </div>
+        
                 <div class="progress" id="progress">
                     <div class="steps">
                         <div class="step"><span class="spin"></span><span id="progressText">Working…</span></div>
@@ -287,7 +287,7 @@
                 <div class="toast bad" id="errBox" style="display:none"></div>
                 <div class="toast ok" id="okBox" style="display:none"></div>
             </div>
-
+            
             <div class="card">
                 <h2>System Status</h2>
                 <div class="field">
@@ -316,18 +316,18 @@
                     <pre id="phrasesOut">[]</pre>
                 </details>
             </div>
-
+            
             <div class="card">
                 <h2>Predictions (ML / database)</h2>
                 <div class="list" id="mlList"></div>
             </div>
-
+            
             <div class="card">
                 <h2>External results (online / learned)</h2>
                 <div class="hint" id="onlineHint" style="margin-bottom:10px">Shown when the backend searched online or reused learned online entries.</div>
                 <div class="list" id="onlineList"></div>
             </div>
-
+            
             <div class="card">
                 <h2>Messages & Note</h2>
                 <div class="list" id="msgList"></div>
@@ -340,6 +340,12 @@
         let API_URL = null;
         // Prefer the newest backend build (has /meta and learning_job_id).
         const API_CANDIDATES = [
+            'http://127.0.0.1:8007',
+            'http://localhost:8007',
+            'http://127.0.0.1:8003',
+            'http://localhost:8003',
+            'http://127.0.0.1:8002',
+            'http://localhost:8002',
             'http://127.0.0.1:8001',
             'http://localhost:8001',
             'http://127.0.0.1:8000',
@@ -535,6 +541,15 @@
             return row;
         }
 
+        function sourceToTag(d, fallbackUsedLearned){
+            const src = String(d?.source ?? '').toLowerCase();
+            if(src === 'pubtator' || src === 'pubtator_candidate') return { text:'PubTator', cls:'online' };
+            if(src === 'online' || src === 'online_candidate') return { text:'Online', cls:'online' };
+            if(src === 'unverified' || src === 'raw' || src === 'learned') return { text:'Learned', cls:'learned' };
+            if(src === 'verified') return { text:'Verified', cls:'ml' };
+            return { text: (fallbackUsedLearned ? 'Learned' : 'Online'), cls: (fallbackUsedLearned ? 'learned' : 'online') };
+        }
+
         function renderPrediction(data){
             $('rawOut').textContent = JSON.stringify(data, null, 2);
 
@@ -589,10 +604,11 @@
                 const arr = Array.isArray(data.online_results) ? data.online_results : [];
                 if(arr.length > 0){
                     arr.forEach(d => {
+                        const tg = sourceToTag(d, !!st.used_learned_data);
                         online.appendChild(makeItem({
                             name: safeText(d.name),
                             scoreText: pct(d.confidence),
-                            tags: [{ text: st.used_learned_data ? 'Learned' : 'Online', cls: st.used_learned_data ? 'learned' : 'online' }]
+                            tags: [tg]
                         }));
                     });
                 }else if(Array.isArray(data.external_suggestions) && data.external_suggestions.length > 0){
@@ -670,7 +686,7 @@
 
                     if(j.status === 'done'){
                         const res = j.result || {};
-                        msg.appendChild(makeItem({ name: `Learning result: stored_raw=${res.stored_raw ?? 0}, promoted_verified=${res.promoted_verified ?? 0}`, scoreText:'', tags:[{text:'Learning'}] }));
+                        msg.appendChild(makeItem({ name: `Learning result: stored_raw=${res.stored_raw ?? 0}, stored_verified=${res.stored_verified ?? 0}, promoted_verified=${res.promoted_verified ?? 0}`, scoreText:'', tags:[{text:'Learning'}] }));
                         return;
                     }
                     if(j.status === 'error'){

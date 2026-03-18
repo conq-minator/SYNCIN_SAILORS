@@ -46,7 +46,7 @@ export const intakeSchema = z.object({
     stressLevel: z.coerce.number().int().min(1).max(5).optional(),
     activityLevel: z.enum(["low", "moderate", "high"]).optional()
   }),
-  symptoms: z.array(symptomSchema).min(1, "Add at least one symptom"),
+  symptoms: z.array(symptomSchema).min(4, "Please add at least 4-5 distinct symptoms for an accurate prediction"),
   assumption: z.string().trim().optional()
 });
 

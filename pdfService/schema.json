@@ -1,0 +1,13 @@
+{
+    "description": "Standardized JSON payload sent from Backend to PDF Service",
+    "expected_format": {
+      "patient_name": "Ashok",
+      "age": 22,
+      "symptoms": [
+        "Fever",
+        "Persistent Cough",
+        "Fatigue"
+      ],
+      "prediction": "Common Cold"
+    }
+  }
