@@ -18,7 +18,8 @@ type Props = {
 };
 
 export function ResultCard({ card, onOpen }: Props) {
-  const styles = riskStyles[card.risk];
+  // Use a fallback to 'moderate' if the risk style is missing
+  const styles = riskStyles[card.risk] || riskStyles.moderate;
 
   return (
     <button

@@ -1,5 +1,7 @@
 import type { IntakePayload, PredictResponse } from "@/lib/types";
 
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "";
+
 export type ApiErrorShape = {
   message: string;
   code?: string;
@@ -17,7 +19,7 @@ async function readJsonSafe(res: Response) {
 }
 
 export async function postIntake(payload: IntakePayload) {
-  const res = await fetch("/api/intake", {
+  const res = await fetch(`${API_BASE}/api/intake`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(payload)
@@ -32,7 +34,7 @@ export async function postIntake(payload: IntakePayload) {
 }
 
 export async function postPredict(payload: IntakePayload) {
-  const res = await fetch("/api/predict", {
+  const res = await fetch(`${API_BASE}/api/predict`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(payload)
